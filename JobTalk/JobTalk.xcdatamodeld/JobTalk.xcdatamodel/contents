@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1811" systemVersion="12C3006" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="TalkMessage" representedClassName="TalkMessage" syncable="YES">
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="master_uid" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="read_count" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="read_yn" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="receive_user_no" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="talk_id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="user_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="user_no" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="write_date" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="talkMessage" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TalkRoom" inverseName="talkRoom" inverseEntity="TalkRoom" syncable="YES"/>
+    </entity>
+    <entity name="TalkRoom" representedClassName="TalkRoom" syncable="YES">
+        <attribute name="last_message" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="last_message_date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="last_message_user" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="master_uid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="user_no" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="talkRoom" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TalkMessage" inverseName="talkMessage" inverseEntity="TalkMessage" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="TalkMessage" positionX="214" positionY="432" width="128" height="193"/>
+        <element name="TalkRoom" positionX="214" positionY="174" width="128" height="148"/>
+    </elements>
+</model>
