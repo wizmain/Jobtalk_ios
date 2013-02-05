@@ -1,0 +1,747 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2606559F169F14290099767D /* UIImage+Round.m in Sources */ = {isa = PBXBuildFile; fileRef = 26065592169F14290099767D /* UIImage+Round.m */; };
+		260655A0169F14290099767D /* UINavigationBar+CustomImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 26065593169F14290099767D /* UINavigationBar+CustomImage.m */; };
+		260655A1169F14290099767D /* NSDictionary-MutableDeepCopy.m in Sources */ = {isa = PBXBuildFile; fileRef = 26065594169F14290099767D /* NSDictionary-MutableDeepCopy.m */; };
+		260655A2169F14290099767D /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 26065598169F14290099767D /* NSData+Base64.m */; };
+		260655A3169F14290099767D /* NSString+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 2606559A169F14290099767D /* NSString+Helpers.m */; };
+		260655A4169F14290099767D /* NSString+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 2606559C169F14290099767D /* NSString+Util.m */; };
+		260655A5169F14290099767D /* NSString+XMLExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2606559E169F14290099767D /* NSString+XMLExtensions.m */; };
+		2620AFAC16A913B900568A0A /* TalkDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2620AFAB16A913B900568A0A /* TalkDataManager.m */; };
+		2635B32E16B262F100043C13 /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2635B32A16B262F100043C13 /* CoreDataHelper.m */; };
+		2635B32F16B262F100043C13 /* MLUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2635B32B16B262F100043C13 /* MLUtils.m */; };
+		2635B33316B2864000043C13 /* TalkSetReadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2635B33216B2864000043C13 /* TalkSetReadOperation.m */; };
+		26610D0E16BB58A700B10BEE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26610D0D16BB58A700B10BEE /* QuartzCore.framework */; };
+		267C5BC3169FDB840020E721 /* 103-Person2.png in Resources */ = {isa = PBXBuildFile; fileRef = 267C5BC1169FDB840020E721 /* 103-Person2.png */; };
+		267C5BC4169FDB840020E721 /* 103-Person2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 267C5BC2169FDB840020E721 /* 103-Person2@2x.png */; };
+		267C5BC6169FDC060020E721 /* CustomTableCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 267C5BC5169FDC060020E721 /* CustomTableCell1.xib */; };
+		267C5BC9169FDDFD0020E721 /* CustomTableCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 267C5BC8169FDDFD0020E721 /* CustomTableCell1.m */; };
+		26990142169BEE500014A674 /* app_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 26990141169BEE500014A674 /* app_icon.png */; };
+		26990145169BEE600014A674 /* app_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26990144169BEE600014A674 /* app_icon@2x.png */; };
+		26990152169BEF120014A674 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 26990149169BEF120014A674 /* NSObject+SBJSON.m */; };
+		26990153169BEF120014A674 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 2699014B169BEF120014A674 /* NSString+SBJSON.m */; };
+		26990154169BEF120014A674 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 2699014D169BEF120014A674 /* SBJsonBase.m */; };
+		26990155169BEF120014A674 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2699014F169BEF120014A674 /* SBJsonParser.m */; };
+		26990156169BEF120014A674 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 26990151169BEF120014A674 /* SBJsonWriter.m */; };
+		26990164169BEF510014A674 /* CameraUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 26990158169BEF510014A674 /* CameraUtils.m */; };
+		26990165169BEF510014A674 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2699015A169BEF510014A674 /* Utils.m */; };
+		26990166169BEF510014A674 /* HTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2699015B169BEF510014A674 /* HTTPRequest.m */; };
+		26990167169BEF510014A674 /* ProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2699015E169BEF510014A674 /* ProgressIndicator.m */; };
+		26990168169BEF510014A674 /* AlertUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2699015F169BEF510014A674 /* AlertUtils.m */; };
+		26990169169BEF510014A674 /* URLConnectionWithTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 26990161169BEF510014A674 /* URLConnectionWithTag.m */; };
+		26990171169BF0550014A674 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2699016B169BF0550014A674 /* MainViewController.m */; };
+		26990172169BF0550014A674 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2699016E169BF0550014A674 /* LoginViewController.m */; };
+		26990173169BF0550014A674 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2699016F169BF0550014A674 /* LoginViewController.xib */; };
+		26990174169BF0550014A674 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26990170169BF0550014A674 /* MainViewController.xib */; };
+		2699017E169BF1D60014A674 /* FriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2699017C169BF1D60014A674 /* FriendViewController.m */; };
+		2699017F169BF1D60014A674 /* FriendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2699017D169BF1D60014A674 /* FriendViewController.xib */; };
+		26990188169BF20C0014A674 /* FriendAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26990186169BF20C0014A674 /* FriendAddViewController.m */; };
+		26990189169BF20C0014A674 /* FriendAddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26990187169BF20C0014A674 /* FriendAddViewController.xib */; };
+		2699018D169BF2350014A674 /* TalkListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2699018B169BF2350014A674 /* TalkListViewController.xib */; };
+		2699018E169BF2350014A674 /* TalkListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2699018C169BF2350014A674 /* TalkListViewController.m */; };
+		26990198169BF44C0014A674 /* 036-SMS.png in Resources */ = {isa = PBXBuildFile; fileRef = 26990190169BF44C0014A674 /* 036-SMS.png */; };
+		26990199169BF44C0014A674 /* 073-Setting.png in Resources */ = {isa = PBXBuildFile; fileRef = 26990191169BF44C0014A674 /* 073-Setting.png */; };
+		2699019A169BF44C0014A674 /* 105-AddUser.png in Resources */ = {isa = PBXBuildFile; fileRef = 26990192169BF44C0014A674 /* 105-AddUser.png */; };
+		2699019B169BF44C0014A674 /* 108-Group.png in Resources */ = {isa = PBXBuildFile; fileRef = 26990193169BF44C0014A674 /* 108-Group.png */; };
+		2699019C169BF44C0014A674 /* 036-SMS@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26990194169BF44C0014A674 /* 036-SMS@2x.png */; };
+		2699019D169BF44C0014A674 /* 073-Setting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26990195169BF44C0014A674 /* 073-Setting@2x.png */; };
+		2699019E169BF44C0014A674 /* 105-AddUser@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26990196169BF44C0014A674 /* 105-AddUser@2x.png */; };
+		2699019F169BF44C0014A674 /* 108-Group@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26990197169BF44C0014A674 /* 108-Group@2x.png */; };
+		269901A2169BF4810014A674 /* main_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 269901A0169BF4810014A674 /* main_bg.png */; };
+		269901A3169BF4810014A674 /* main_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 269901A1169BF4810014A674 /* main_bg@2x.png */; };
+		269901A7169BF5880014A674 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 269901A5169BF5880014A674 /* SettingViewController.m */; };
+		269901A8169BF5880014A674 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 269901A6169BF5880014A674 /* SettingViewController.xib */; };
+		269901AF169C0C250014A674 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 269901AE169C0C250014A674 /* AudioToolbox.framework */; };
+		269901B1169C122F0014A674 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 269901B0169C122F0014A674 /* SystemConfiguration.framework */; };
+		269901B2169C12610014A674 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26990177169BF1300014A674 /* AVFoundation.framework */; };
+		26B39F6E16AFC1AB00927461 /* TalkRoomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B39F6D16AFC1AB00927461 /* TalkRoomCell.m */; };
+		26B39F7016AFC1CA00927461 /* TalkRoomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26B39F6F16AFC1CA00927461 /* TalkRoomCell.xib */; };
+		26BCBCEA169D18140045C263 /* 103-Person.png in Resources */ = {isa = PBXBuildFile; fileRef = 26BCBCE8169D18140045C263 /* 103-Person.png */; };
+		26BCBCEB169D18140045C263 /* 103-Person@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26BCBCE9169D18140045C263 /* 103-Person@2x.png */; };
+		26BCBCEF169D6AB20045C263 /* 105-AddUserBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 26BCBCED169D6AB20045C263 /* 105-AddUserBlack.png */; };
+		26BCBCF0169D6AB20045C263 /* 105-AddUserBlack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26BCBCEE169D6AB20045C263 /* 105-AddUserBlack@2x.png */; };
+		26BCBCFD169D7EF30045C263 /* TalkRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BCBCFB169D7EF30045C263 /* TalkRoom.m */; };
+		26BCBD00169D7F100045C263 /* LoginProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BCBCFE169D7F100045C263 /* LoginProperties.m */; };
+		26D71C7A169AA75500D5568D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26D71C79169AA75500D5568D /* UIKit.framework */; };
+		26D71C7C169AA75500D5568D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26D71C7B169AA75500D5568D /* Foundation.framework */; };
+		26D71C7E169AA75500D5568D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26D71C7D169AA75500D5568D /* CoreGraphics.framework */; };
+		26D71C80169AA75500D5568D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26D71C7F169AA75500D5568D /* CoreData.framework */; };
+		26D71C86169AA75500D5568D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 26D71C84169AA75500D5568D /* InfoPlist.strings */; };
+		26D71C88169AA75500D5568D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D71C87169AA75500D5568D /* main.m */; };
+		26D71C8C169AA75500D5568D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D71C8B169AA75500D5568D /* AppDelegate.m */; };
+		26D71C8E169AA75500D5568D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D71C8D169AA75500D5568D /* Default.png */; };
+		26D71C90169AA75500D5568D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D71C8F169AA75500D5568D /* Default@2x.png */; };
+		26D71C92169AA75500D5568D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D71C91169AA75500D5568D /* Default-568h@2x.png */; };
+		26D71C95169AA75500D5568D /* JobTalk.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 26D71C93169AA75500D5568D /* JobTalk.xcdatamodeld */; };
+		26EBF546169E5DF1001F2914 /* TalkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EBF544169E5DF1001F2914 /* TalkViewController.m */; };
+		26EBF547169E5DF1001F2914 /* TalkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26EBF545169E5DF1001F2914 /* TalkViewController.xib */; };
+		26EBF550169E6071001F2914 /* HPGrowingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EBF54C169E6071001F2914 /* HPGrowingTextView.m */; };
+		26EBF551169E6071001F2914 /* HPTextViewInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EBF54E169E6071001F2914 /* HPTextViewInternal.m */; };
+		26EBF554169E886E001F2914 /* grey.png in Resources */ = {isa = PBXBuildFile; fileRef = 26EBF552169E886E001F2914 /* grey.png */; };
+		26EBF555169E886E001F2914 /* green.png in Resources */ = {isa = PBXBuildFile; fileRef = 26EBF553169E886E001F2914 /* green.png */; };
+		26EBF55B169EC50F001F2914 /* TalkMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EBF55A169EC50F001F2914 /* TalkMessage.m */; };
+		26F062BC16C0A32D008F6414 /* redbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 26F062BA16C0A32D008F6414 /* redbutton.png */; };
+		26F062BD16C0A32D008F6414 /* redbutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26F062BB16C0A32D008F6414 /* redbutton@2x.png */; };
+		26F062C016C0A6F1008F6414 /* talkout.png in Resources */ = {isa = PBXBuildFile; fileRef = 26F062BE16C0A6F1008F6414 /* talkout.png */; };
+		26F062C116C0A6F1008F6414 /* talkout@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26F062BF16C0A6F1008F6414 /* talkout@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		26065591169F14290099767D /* UIImage+Round.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Round.h"; path = "Categories/UIImage+Round.h"; sourceTree = "<group>"; };
+		26065592169F14290099767D /* UIImage+Round.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Round.m"; path = "Categories/UIImage+Round.m"; sourceTree = "<group>"; };
+		26065593169F14290099767D /* UINavigationBar+CustomImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINavigationBar+CustomImage.m"; path = "Categories/UINavigationBar+CustomImage.m"; sourceTree = "<group>"; };
+		26065594169F14290099767D /* NSDictionary-MutableDeepCopy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary-MutableDeepCopy.m"; path = "Categories/NSDictionary-MutableDeepCopy.m"; sourceTree = "<group>"; };
+		26065595169F14290099767D /* NSDictionary-MutableDeepCopy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary-MutableDeepCopy.h"; path = "Categories/NSDictionary-MutableDeepCopy.h"; sourceTree = "<group>"; };
+		26065596169F14290099767D /* UINavigationBar+CustomImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UINavigationBar+CustomImage.h"; path = "Categories/UINavigationBar+CustomImage.h"; sourceTree = "<group>"; };
+		26065597169F14290099767D /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+Base64.h"; path = "Categories/NSData+Base64.h"; sourceTree = "<group>"; };
+		26065598169F14290099767D /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+Base64.m"; path = "Categories/NSData+Base64.m"; sourceTree = "<group>"; };
+		26065599169F14290099767D /* NSString+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Helpers.h"; path = "Categories/NSString+Helpers.h"; sourceTree = "<group>"; };
+		2606559A169F14290099767D /* NSString+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Helpers.m"; path = "Categories/NSString+Helpers.m"; sourceTree = "<group>"; };
+		2606559B169F14290099767D /* NSString+Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Util.h"; path = "Categories/NSString+Util.h"; sourceTree = "<group>"; };
+		2606559C169F14290099767D /* NSString+Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Util.m"; path = "Categories/NSString+Util.m"; sourceTree = "<group>"; };
+		2606559D169F14290099767D /* NSString+XMLExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+XMLExtensions.h"; path = "Categories/NSString+XMLExtensions.h"; sourceTree = "<group>"; };
+		2606559E169F14290099767D /* NSString+XMLExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+XMLExtensions.m"; path = "Categories/NSString+XMLExtensions.m"; sourceTree = "<group>"; };
+		2620AFAA16A913B900568A0A /* TalkDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TalkDataManager.h; path = Biz/TalkDataManager.h; sourceTree = "<group>"; };
+		2620AFAB16A913B900568A0A /* TalkDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TalkDataManager.m; path = Biz/TalkDataManager.m; sourceTree = "<group>"; };
+		2635B32A16B262F100043C13 /* CoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataHelper.m; path = Utils/CoreDataHelper.m; sourceTree = "<group>"; };
+		2635B32B16B262F100043C13 /* MLUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MLUtils.m; path = Utils/MLUtils.m; sourceTree = "<group>"; };
+		2635B32C16B262F100043C13 /* MLUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MLUtils.h; path = Utils/MLUtils.h; sourceTree = "<group>"; };
+		2635B32D16B262F100043C13 /* CoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataHelper.h; path = Utils/CoreDataHelper.h; sourceTree = "<group>"; };
+		2635B33116B2864000043C13 /* TalkSetReadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TalkSetReadOperation.h; path = Controller/TalkSetReadOperation.h; sourceTree = "<group>"; };
+		2635B33216B2864000043C13 /* TalkSetReadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TalkSetReadOperation.m; path = Controller/TalkSetReadOperation.m; sourceTree = "<group>"; };
+		26610D0D16BB58A700B10BEE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		267C5BC1169FDB840020E721 /* 103-Person2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "103-Person2.png"; path = "Images/103-Person2.png"; sourceTree = "<group>"; };
+		267C5BC2169FDB840020E721 /* 103-Person2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "103-Person2@2x.png"; path = "Images/103-Person2@2x.png"; sourceTree = "<group>"; };
+		267C5BC5169FDC060020E721 /* CustomTableCell1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomTableCell1.xib; path = Controller/CustomTableCell1.xib; sourceTree = "<group>"; };
+		267C5BC7169FDDFD0020E721 /* CustomTableCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomTableCell1.h; path = Controller/CustomTableCell1.h; sourceTree = "<group>"; };
+		267C5BC8169FDDFD0020E721 /* CustomTableCell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomTableCell1.m; path = Controller/CustomTableCell1.m; sourceTree = "<group>"; };
+		26990141169BEE500014A674 /* app_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = app_icon.png; sourceTree = "<group>"; };
+		26990144169BEE600014A674 /* app_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_icon@2x.png"; sourceTree = "<group>"; };
+		26990147169BEF120014A674 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSON.h; path = JSON/JSON.h; sourceTree = "<group>"; };
+		26990148169BEF120014A674 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+SBJSON.h"; path = "JSON/NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		26990149169BEF120014A674 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+SBJSON.m"; path = "JSON/NSObject+SBJSON.m"; sourceTree = "<group>"; };
+		2699014A169BEF120014A674 /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+SBJSON.h"; path = "JSON/NSString+SBJSON.h"; sourceTree = "<group>"; };
+		2699014B169BEF120014A674 /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+SBJSON.m"; path = "JSON/NSString+SBJSON.m"; sourceTree = "<group>"; };
+		2699014C169BEF120014A674 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonBase.h; path = JSON/SBJsonBase.h; sourceTree = "<group>"; };
+		2699014D169BEF120014A674 /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonBase.m; path = JSON/SBJsonBase.m; sourceTree = "<group>"; };
+		2699014E169BEF120014A674 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonParser.h; path = JSON/SBJsonParser.h; sourceTree = "<group>"; };
+		2699014F169BEF120014A674 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonParser.m; path = JSON/SBJsonParser.m; sourceTree = "<group>"; };
+		26990150169BEF120014A674 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonWriter.h; path = JSON/SBJsonWriter.h; sourceTree = "<group>"; };
+		26990151169BEF120014A674 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonWriter.m; path = JSON/SBJsonWriter.m; sourceTree = "<group>"; };
+		26990158169BEF510014A674 /* CameraUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CameraUtils.m; path = Utils/CameraUtils.m; sourceTree = "<group>"; };
+		26990159169BEF510014A674 /* CameraUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CameraUtils.h; path = Utils/CameraUtils.h; sourceTree = "<group>"; };
+		2699015A169BEF510014A674 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Utils.m; path = Utils/Utils.m; sourceTree = "<group>"; };
+		2699015B169BEF510014A674 /* HTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTTPRequest.m; path = Utils/HTTPRequest.m; sourceTree = "<group>"; };
+		2699015C169BEF510014A674 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Utils.h; path = Utils/Utils.h; sourceTree = "<group>"; };
+		2699015D169BEF510014A674 /* ProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProgressIndicator.h; path = Utils/ProgressIndicator.h; sourceTree = "<group>"; };
+		2699015E169BEF510014A674 /* ProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProgressIndicator.m; path = Utils/ProgressIndicator.m; sourceTree = "<group>"; };
+		2699015F169BEF510014A674 /* AlertUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlertUtils.m; path = Utils/AlertUtils.m; sourceTree = "<group>"; };
+		26990160169BEF510014A674 /* HTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPRequest.h; path = Utils/HTTPRequest.h; sourceTree = "<group>"; };
+		26990161169BEF510014A674 /* URLConnectionWithTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = URLConnectionWithTag.m; path = Utils/URLConnectionWithTag.m; sourceTree = "<group>"; };
+		26990162169BEF510014A674 /* URLConnectionWithTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = URLConnectionWithTag.h; path = Utils/URLConnectionWithTag.h; sourceTree = "<group>"; };
+		26990163169BEF510014A674 /* AlertUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlertUtils.h; path = Utils/AlertUtils.h; sourceTree = "<group>"; };
+		2699016B169BF0550014A674 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = Controller/MainViewController.m; sourceTree = "<group>"; };
+		2699016C169BF0550014A674 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = Controller/MainViewController.h; sourceTree = "<group>"; };
+		2699016D169BF0550014A674 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Controller/LoginViewController.h; sourceTree = "<group>"; };
+		2699016E169BF0550014A674 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Controller/LoginViewController.m; sourceTree = "<group>"; };
+		2699016F169BF0550014A674 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = Controller/LoginViewController.xib; sourceTree = "<group>"; };
+		26990170169BF0550014A674 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainViewController.xib; path = Controller/MainViewController.xib; sourceTree = "<group>"; };
+		26990175169BF1050014A674 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		26990177169BF1300014A674 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		26990179169BF15B0014A674 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		2699017B169BF1D60014A674 /* FriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendViewController.h; path = Controller/FriendViewController.h; sourceTree = "<group>"; };
+		2699017C169BF1D60014A674 /* FriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendViewController.m; path = Controller/FriendViewController.m; sourceTree = "<group>"; };
+		2699017D169BF1D60014A674 /* FriendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FriendViewController.xib; path = Controller/FriendViewController.xib; sourceTree = "<group>"; };
+		26990185169BF20C0014A674 /* FriendAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendAddViewController.h; path = Controller/FriendAddViewController.h; sourceTree = "<group>"; };
+		26990186169BF20C0014A674 /* FriendAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendAddViewController.m; path = Controller/FriendAddViewController.m; sourceTree = "<group>"; };
+		26990187169BF20C0014A674 /* FriendAddViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FriendAddViewController.xib; path = Controller/FriendAddViewController.xib; sourceTree = "<group>"; };
+		2699018A169BF2350014A674 /* TalkListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TalkListViewController.h; path = Controller/TalkListViewController.h; sourceTree = "<group>"; };
+		2699018B169BF2350014A674 /* TalkListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TalkListViewController.xib; path = Controller/TalkListViewController.xib; sourceTree = "<group>"; };
+		2699018C169BF2350014A674 /* TalkListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TalkListViewController.m; path = Controller/TalkListViewController.m; sourceTree = "<group>"; };
+		26990190169BF44C0014A674 /* 036-SMS.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "036-SMS.png"; path = "Images/036-SMS.png"; sourceTree = "<group>"; };
+		26990191169BF44C0014A674 /* 073-Setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "073-Setting.png"; path = "Images/073-Setting.png"; sourceTree = "<group>"; };
+		26990192169BF44C0014A674 /* 105-AddUser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "105-AddUser.png"; path = "Images/105-AddUser.png"; sourceTree = "<group>"; };
+		26990193169BF44C0014A674 /* 108-Group.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "108-Group.png"; path = "Images/108-Group.png"; sourceTree = "<group>"; };
+		26990194169BF44C0014A674 /* 036-SMS@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "036-SMS@2x.png"; path = "Images/036-SMS@2x.png"; sourceTree = "<group>"; };
+		26990195169BF44C0014A674 /* 073-Setting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "073-Setting@2x.png"; path = "Images/073-Setting@2x.png"; sourceTree = "<group>"; };
+		26990196169BF44C0014A674 /* 105-AddUser@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "105-AddUser@2x.png"; path = "Images/105-AddUser@2x.png"; sourceTree = "<group>"; };
+		26990197169BF44C0014A674 /* 108-Group@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "108-Group@2x.png"; path = "Images/108-Group@2x.png"; sourceTree = "<group>"; };
+		269901A0169BF4810014A674 /* main_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = main_bg.png; path = Images/main_bg.png; sourceTree = "<group>"; };
+		269901A1169BF4810014A674 /* main_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "main_bg@2x.png"; path = "Images/main_bg@2x.png"; sourceTree = "<group>"; };
+		269901A4169BF5880014A674 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingViewController.h; path = Controller/SettingViewController.h; sourceTree = "<group>"; };
+		269901A5169BF5880014A674 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingViewController.m; path = Controller/SettingViewController.m; sourceTree = "<group>"; };
+		269901A6169BF5880014A674 /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingViewController.xib; path = Controller/SettingViewController.xib; sourceTree = "<group>"; };
+		269901A9169BFE2E0014A674 /* Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
+		269901AE169C0C250014A674 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		269901B0169C122F0014A674 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		26B39F6C16AFC1AB00927461 /* TalkRoomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TalkRoomCell.h; path = Controller/TalkRoomCell.h; sourceTree = "<group>"; };
+		26B39F6D16AFC1AB00927461 /* TalkRoomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TalkRoomCell.m; path = Controller/TalkRoomCell.m; sourceTree = "<group>"; };
+		26B39F6F16AFC1CA00927461 /* TalkRoomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TalkRoomCell.xib; path = Controller/TalkRoomCell.xib; sourceTree = "<group>"; };
+		26BCBCE8169D18140045C263 /* 103-Person.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "103-Person.png"; path = "Images/103-Person.png"; sourceTree = "<group>"; };
+		26BCBCE9169D18140045C263 /* 103-Person@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "103-Person@2x.png"; path = "Images/103-Person@2x.png"; sourceTree = "<group>"; };
+		26BCBCED169D6AB20045C263 /* 105-AddUserBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "105-AddUserBlack.png"; path = "Images/105-AddUserBlack.png"; sourceTree = "<group>"; };
+		26BCBCEE169D6AB20045C263 /* 105-AddUserBlack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "105-AddUserBlack@2x.png"; path = "Images/105-AddUserBlack@2x.png"; sourceTree = "<group>"; };
+		26BCBCFA169D7EF30045C263 /* TalkRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TalkRoom.h; path = Model/TalkRoom.h; sourceTree = "<group>"; };
+		26BCBCFB169D7EF30045C263 /* TalkRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TalkRoom.m; path = Model/TalkRoom.m; sourceTree = "<group>"; };
+		26BCBCFE169D7F100045C263 /* LoginProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginProperties.m; path = Model/LoginProperties.m; sourceTree = "<group>"; };
+		26BCBCFF169D7F100045C263 /* LoginProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginProperties.h; path = Model/LoginProperties.h; sourceTree = "<group>"; };
+		26D71C75169AA75500D5568D /* JobTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JobTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		26D71C79169AA75500D5568D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		26D71C7B169AA75500D5568D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		26D71C7D169AA75500D5568D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		26D71C7F169AA75500D5568D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		26D71C83169AA75500D5568D /* JobTalk-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JobTalk-Info.plist"; sourceTree = "<group>"; };
+		26D71C85169AA75500D5568D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		26D71C87169AA75500D5568D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		26D71C89169AA75500D5568D /* JobTalk-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JobTalk-Prefix.pch"; sourceTree = "<group>"; };
+		26D71C8A169AA75500D5568D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		26D71C8B169AA75500D5568D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		26D71C8D169AA75500D5568D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		26D71C8F169AA75500D5568D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		26D71C91169AA75500D5568D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		26D71C94169AA75500D5568D /* JobTalk.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JobTalk.xcdatamodel; sourceTree = "<group>"; };
+		26EBF543169E5DF1001F2914 /* TalkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TalkViewController.h; path = Controller/TalkViewController.h; sourceTree = "<group>"; };
+		26EBF544169E5DF1001F2914 /* TalkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TalkViewController.m; path = Controller/TalkViewController.m; sourceTree = "<group>"; };
+		26EBF545169E5DF1001F2914 /* TalkViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TalkViewController.xib; path = Controller/TalkViewController.xib; sourceTree = "<group>"; };
+		26EBF54C169E6071001F2914 /* HPGrowingTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HPGrowingTextView.m; path = GrowingTextView/HPGrowingTextView.m; sourceTree = "<group>"; };
+		26EBF54D169E6071001F2914 /* HPGrowingTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HPGrowingTextView.h; path = GrowingTextView/HPGrowingTextView.h; sourceTree = "<group>"; };
+		26EBF54E169E6071001F2914 /* HPTextViewInternal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HPTextViewInternal.m; path = GrowingTextView/HPTextViewInternal.m; sourceTree = "<group>"; };
+		26EBF54F169E6071001F2914 /* HPTextViewInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HPTextViewInternal.h; path = GrowingTextView/HPTextViewInternal.h; sourceTree = "<group>"; };
+		26EBF552169E886E001F2914 /* grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = grey.png; path = Images/grey.png; sourceTree = "<group>"; };
+		26EBF553169E886E001F2914 /* green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = green.png; path = Images/green.png; sourceTree = "<group>"; };
+		26EBF559169EC50F001F2914 /* TalkMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TalkMessage.h; path = Model/TalkMessage.h; sourceTree = "<group>"; };
+		26EBF55A169EC50F001F2914 /* TalkMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TalkMessage.m; path = Model/TalkMessage.m; sourceTree = "<group>"; };
+		26F062BA16C0A32D008F6414 /* redbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = redbutton.png; path = Images/redbutton.png; sourceTree = "<group>"; };
+		26F062BB16C0A32D008F6414 /* redbutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "redbutton@2x.png"; path = "Images/redbutton@2x.png"; sourceTree = "<group>"; };
+		26F062BE16C0A6F1008F6414 /* talkout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = talkout.png; path = Images/talkout.png; sourceTree = "<group>"; };
+		26F062BF16C0A6F1008F6414 /* talkout@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "talkout@2x.png"; path = "Images/talkout@2x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		26D71C72169AA75500D5568D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26610D0E16BB58A700B10BEE /* QuartzCore.framework in Frameworks */,
+				269901B2169C12610014A674 /* AVFoundation.framework in Frameworks */,
+				269901B1169C122F0014A674 /* SystemConfiguration.framework in Frameworks */,
+				269901AF169C0C250014A674 /* AudioToolbox.framework in Frameworks */,
+				26D71C7A169AA75500D5568D /* UIKit.framework in Frameworks */,
+				26D71C7C169AA75500D5568D /* Foundation.framework in Frameworks */,
+				26D71C7E169AA75500D5568D /* CoreGraphics.framework in Frameworks */,
+				26D71C80169AA75500D5568D /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		26065590169F141C0099767D /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				26065591169F14290099767D /* UIImage+Round.h */,
+				26065592169F14290099767D /* UIImage+Round.m */,
+				26065593169F14290099767D /* UINavigationBar+CustomImage.m */,
+				26065594169F14290099767D /* NSDictionary-MutableDeepCopy.m */,
+				26065595169F14290099767D /* NSDictionary-MutableDeepCopy.h */,
+				26065596169F14290099767D /* UINavigationBar+CustomImage.h */,
+				26065597169F14290099767D /* NSData+Base64.h */,
+				26065598169F14290099767D /* NSData+Base64.m */,
+				26065599169F14290099767D /* NSString+Helpers.h */,
+				2606559A169F14290099767D /* NSString+Helpers.m */,
+				2606559B169F14290099767D /* NSString+Util.h */,
+				2606559C169F14290099767D /* NSString+Util.m */,
+				2606559D169F14290099767D /* NSString+XMLExtensions.h */,
+				2606559E169F14290099767D /* NSString+XMLExtensions.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		2620AFA816A90F7100568A0A /* Biz */ = {
+			isa = PBXGroup;
+			children = (
+				2620AFAA16A913B900568A0A /* TalkDataManager.h */,
+				2620AFAB16A913B900568A0A /* TalkDataManager.m */,
+			);
+			name = Biz;
+			sourceTree = "<group>";
+		};
+		26990146169BEF050014A674 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				26990147169BEF120014A674 /* JSON.h */,
+				26990148169BEF120014A674 /* NSObject+SBJSON.h */,
+				26990149169BEF120014A674 /* NSObject+SBJSON.m */,
+				2699014A169BEF120014A674 /* NSString+SBJSON.h */,
+				2699014B169BEF120014A674 /* NSString+SBJSON.m */,
+				2699014C169BEF120014A674 /* SBJsonBase.h */,
+				2699014D169BEF120014A674 /* SBJsonBase.m */,
+				2699014E169BEF120014A674 /* SBJsonParser.h */,
+				2699014F169BEF120014A674 /* SBJsonParser.m */,
+				26990150169BEF120014A674 /* SBJsonWriter.h */,
+				26990151169BEF120014A674 /* SBJsonWriter.m */,
+			);
+			name = JSON;
+			sourceTree = "<group>";
+		};
+		26990157169BEF420014A674 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2635B32D16B262F100043C13 /* CoreDataHelper.h */,
+				2635B32A16B262F100043C13 /* CoreDataHelper.m */,
+				2635B32B16B262F100043C13 /* MLUtils.m */,
+				2635B32C16B262F100043C13 /* MLUtils.h */,
+				26990163169BEF510014A674 /* AlertUtils.h */,
+				2699015F169BEF510014A674 /* AlertUtils.m */,
+				26990159169BEF510014A674 /* CameraUtils.h */,
+				26990158169BEF510014A674 /* CameraUtils.m */,
+				26990160169BEF510014A674 /* HTTPRequest.h */,
+				2699015B169BEF510014A674 /* HTTPRequest.m */,
+				2699015D169BEF510014A674 /* ProgressIndicator.h */,
+				2699015E169BEF510014A674 /* ProgressIndicator.m */,
+				26990162169BEF510014A674 /* URLConnectionWithTag.h */,
+				26990161169BEF510014A674 /* URLConnectionWithTag.m */,
+				2699015C169BEF510014A674 /* Utils.h */,
+				2699015A169BEF510014A674 /* Utils.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		2699016A169BEF720014A674 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2699018A169BF2350014A674 /* TalkListViewController.h */,
+				2699018C169BF2350014A674 /* TalkListViewController.m */,
+				2699018B169BF2350014A674 /* TalkListViewController.xib */,
+				26EBF543169E5DF1001F2914 /* TalkViewController.h */,
+				26EBF544169E5DF1001F2914 /* TalkViewController.m */,
+				26EBF545169E5DF1001F2914 /* TalkViewController.xib */,
+				2699016D169BF0550014A674 /* LoginViewController.h */,
+				2699016E169BF0550014A674 /* LoginViewController.m */,
+				2699016F169BF0550014A674 /* LoginViewController.xib */,
+				2699016C169BF0550014A674 /* MainViewController.h */,
+				2699016B169BF0550014A674 /* MainViewController.m */,
+				26990170169BF0550014A674 /* MainViewController.xib */,
+				2699017B169BF1D60014A674 /* FriendViewController.h */,
+				2699017C169BF1D60014A674 /* FriendViewController.m */,
+				2699017D169BF1D60014A674 /* FriendViewController.xib */,
+				26990185169BF20C0014A674 /* FriendAddViewController.h */,
+				26990186169BF20C0014A674 /* FriendAddViewController.m */,
+				26990187169BF20C0014A674 /* FriendAddViewController.xib */,
+				269901A4169BF5880014A674 /* SettingViewController.h */,
+				269901A5169BF5880014A674 /* SettingViewController.m */,
+				269901A6169BF5880014A674 /* SettingViewController.xib */,
+				267C5BC7169FDDFD0020E721 /* CustomTableCell1.h */,
+				267C5BC8169FDDFD0020E721 /* CustomTableCell1.m */,
+				267C5BC5169FDC060020E721 /* CustomTableCell1.xib */,
+				26B39F6C16AFC1AB00927461 /* TalkRoomCell.h */,
+				26B39F6D16AFC1AB00927461 /* TalkRoomCell.m */,
+				26B39F6F16AFC1CA00927461 /* TalkRoomCell.xib */,
+				2635B33116B2864000043C13 /* TalkSetReadOperation.h */,
+				2635B33216B2864000043C13 /* TalkSetReadOperation.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		2699018F169BF4400014A674 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				26F062BE16C0A6F1008F6414 /* talkout.png */,
+				26F062BF16C0A6F1008F6414 /* talkout@2x.png */,
+				26F062BA16C0A32D008F6414 /* redbutton.png */,
+				26F062BB16C0A32D008F6414 /* redbutton@2x.png */,
+				267C5BC1169FDB840020E721 /* 103-Person2.png */,
+				267C5BC2169FDB840020E721 /* 103-Person2@2x.png */,
+				26EBF552169E886E001F2914 /* grey.png */,
+				26EBF553169E886E001F2914 /* green.png */,
+				26BCBCED169D6AB20045C263 /* 105-AddUserBlack.png */,
+				26BCBCEE169D6AB20045C263 /* 105-AddUserBlack@2x.png */,
+				26BCBCE8169D18140045C263 /* 103-Person.png */,
+				26BCBCE9169D18140045C263 /* 103-Person@2x.png */,
+				269901A0169BF4810014A674 /* main_bg.png */,
+				269901A1169BF4810014A674 /* main_bg@2x.png */,
+				26990190169BF44C0014A674 /* 036-SMS.png */,
+				26990191169BF44C0014A674 /* 073-Setting.png */,
+				26990192169BF44C0014A674 /* 105-AddUser.png */,
+				26990193169BF44C0014A674 /* 108-Group.png */,
+				26990194169BF44C0014A674 /* 036-SMS@2x.png */,
+				26990195169BF44C0014A674 /* 073-Setting@2x.png */,
+				26990196169BF44C0014A674 /* 105-AddUser@2x.png */,
+				26990197169BF44C0014A674 /* 108-Group@2x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		269901AA169BFEE60014A674 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				26D71C93169AA75500D5568D /* JobTalk.xcdatamodeld */,
+				26EBF559169EC50F001F2914 /* TalkMessage.h */,
+				26EBF55A169EC50F001F2914 /* TalkMessage.m */,
+				26BCBCFE169D7F100045C263 /* LoginProperties.m */,
+				26BCBCFF169D7F100045C263 /* LoginProperties.h */,
+				26BCBCFA169D7EF30045C263 /* TalkRoom.h */,
+				26BCBCFB169D7EF30045C263 /* TalkRoom.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		26D71C6A169AA75500D5568D = {
+			isa = PBXGroup;
+			children = (
+				26990144169BEE600014A674 /* app_icon@2x.png */,
+				26990141169BEE500014A674 /* app_icon.png */,
+				26D71C81169AA75500D5568D /* JobTalk */,
+				26D71C78169AA75500D5568D /* Frameworks */,
+				26D71C76169AA75500D5568D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		26D71C76169AA75500D5568D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				26D71C75169AA75500D5568D /* JobTalk.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		26D71C78169AA75500D5568D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				26610D0D16BB58A700B10BEE /* QuartzCore.framework */,
+				269901B0169C122F0014A674 /* SystemConfiguration.framework */,
+				269901AE169C0C250014A674 /* AudioToolbox.framework */,
+				26990179169BF15B0014A674 /* MediaPlayer.framework */,
+				26990177169BF1300014A674 /* AVFoundation.framework */,
+				26990175169BF1050014A674 /* CoreMedia.framework */,
+				26D71C79169AA75500D5568D /* UIKit.framework */,
+				26D71C7B169AA75500D5568D /* Foundation.framework */,
+				26D71C7D169AA75500D5568D /* CoreGraphics.framework */,
+				26D71C7F169AA75500D5568D /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		26D71C81169AA75500D5568D /* JobTalk */ = {
+			isa = PBXGroup;
+			children = (
+				2620AFA816A90F7100568A0A /* Biz */,
+				26065590169F141C0099767D /* Categories */,
+				26EBF54B169E6043001F2914 /* GrowingTextView */,
+				269901AA169BFEE60014A674 /* Model */,
+				2699016A169BEF720014A674 /* Controller */,
+				26990157169BEF420014A674 /* Utils */,
+				26990146169BEF050014A674 /* JSON */,
+				26D71C8A169AA75500D5568D /* AppDelegate.h */,
+				26D71C8B169AA75500D5568D /* AppDelegate.m */,
+				269901A9169BFE2E0014A674 /* Constant.h */,
+				26D71C82169AA75500D5568D /* Supporting Files */,
+			);
+			path = JobTalk;
+			sourceTree = "<group>";
+		};
+		26D71C82169AA75500D5568D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2699018F169BF4400014A674 /* Images */,
+				26D71C83169AA75500D5568D /* JobTalk-Info.plist */,
+				26D71C84169AA75500D5568D /* InfoPlist.strings */,
+				26D71C87169AA75500D5568D /* main.m */,
+				26D71C89169AA75500D5568D /* JobTalk-Prefix.pch */,
+				26D71C8D169AA75500D5568D /* Default.png */,
+				26D71C8F169AA75500D5568D /* Default@2x.png */,
+				26D71C91169AA75500D5568D /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		26EBF54B169E6043001F2914 /* GrowingTextView */ = {
+			isa = PBXGroup;
+			children = (
+				26EBF54D169E6071001F2914 /* HPGrowingTextView.h */,
+				26EBF54C169E6071001F2914 /* HPGrowingTextView.m */,
+				26EBF54F169E6071001F2914 /* HPTextViewInternal.h */,
+				26EBF54E169E6071001F2914 /* HPTextViewInternal.m */,
+			);
+			name = GrowingTextView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		26D71C74169AA75500D5568D /* JobTalk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 26D71C98169AA75500D5568D /* Build configuration list for PBXNativeTarget "JobTalk" */;
+			buildPhases = (
+				26D71C71169AA75500D5568D /* Sources */,
+				26D71C72169AA75500D5568D /* Frameworks */,
+				26D71C73169AA75500D5568D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JobTalk;
+			productName = JobTalk;
+			productReference = 26D71C75169AA75500D5568D /* JobTalk.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		26D71C6C169AA75500D5568D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = coelsoft;
+			};
+			buildConfigurationList = 26D71C6F169AA75500D5568D /* Build configuration list for PBXProject "JobTalk" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 26D71C6A169AA75500D5568D;
+			productRefGroup = 26D71C76169AA75500D5568D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				26D71C74169AA75500D5568D /* JobTalk */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		26D71C73169AA75500D5568D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26D71C86169AA75500D5568D /* InfoPlist.strings in Resources */,
+				26D71C8E169AA75500D5568D /* Default.png in Resources */,
+				26D71C90169AA75500D5568D /* Default@2x.png in Resources */,
+				26D71C92169AA75500D5568D /* Default-568h@2x.png in Resources */,
+				26990142169BEE500014A674 /* app_icon.png in Resources */,
+				26990145169BEE600014A674 /* app_icon@2x.png in Resources */,
+				26990173169BF0550014A674 /* LoginViewController.xib in Resources */,
+				26990174169BF0550014A674 /* MainViewController.xib in Resources */,
+				2699017F169BF1D60014A674 /* FriendViewController.xib in Resources */,
+				26990189169BF20C0014A674 /* FriendAddViewController.xib in Resources */,
+				2699018D169BF2350014A674 /* TalkListViewController.xib in Resources */,
+				26990198169BF44C0014A674 /* 036-SMS.png in Resources */,
+				26990199169BF44C0014A674 /* 073-Setting.png in Resources */,
+				2699019A169BF44C0014A674 /* 105-AddUser.png in Resources */,
+				2699019B169BF44C0014A674 /* 108-Group.png in Resources */,
+				2699019C169BF44C0014A674 /* 036-SMS@2x.png in Resources */,
+				2699019D169BF44C0014A674 /* 073-Setting@2x.png in Resources */,
+				2699019E169BF44C0014A674 /* 105-AddUser@2x.png in Resources */,
+				2699019F169BF44C0014A674 /* 108-Group@2x.png in Resources */,
+				269901A2169BF4810014A674 /* main_bg.png in Resources */,
+				269901A3169BF4810014A674 /* main_bg@2x.png in Resources */,
+				269901A8169BF5880014A674 /* SettingViewController.xib in Resources */,
+				26BCBCEA169D18140045C263 /* 103-Person.png in Resources */,
+				26BCBCEB169D18140045C263 /* 103-Person@2x.png in Resources */,
+				26BCBCEF169D6AB20045C263 /* 105-AddUserBlack.png in Resources */,
+				26BCBCF0169D6AB20045C263 /* 105-AddUserBlack@2x.png in Resources */,
+				26EBF547169E5DF1001F2914 /* TalkViewController.xib in Resources */,
+				26EBF554169E886E001F2914 /* grey.png in Resources */,
+				26EBF555169E886E001F2914 /* green.png in Resources */,
+				267C5BC3169FDB840020E721 /* 103-Person2.png in Resources */,
+				267C5BC4169FDB840020E721 /* 103-Person2@2x.png in Resources */,
+				267C5BC6169FDC060020E721 /* CustomTableCell1.xib in Resources */,
+				26B39F7016AFC1CA00927461 /* TalkRoomCell.xib in Resources */,
+				26F062BC16C0A32D008F6414 /* redbutton.png in Resources */,
+				26F062BD16C0A32D008F6414 /* redbutton@2x.png in Resources */,
+				26F062C016C0A6F1008F6414 /* talkout.png in Resources */,
+				26F062C116C0A6F1008F6414 /* talkout@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		26D71C71169AA75500D5568D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26D71C88169AA75500D5568D /* main.m in Sources */,
+				26D71C8C169AA75500D5568D /* AppDelegate.m in Sources */,
+				26D71C95169AA75500D5568D /* JobTalk.xcdatamodeld in Sources */,
+				26990152169BEF120014A674 /* NSObject+SBJSON.m in Sources */,
+				26990153169BEF120014A674 /* NSString+SBJSON.m in Sources */,
+				26990154169BEF120014A674 /* SBJsonBase.m in Sources */,
+				26990155169BEF120014A674 /* SBJsonParser.m in Sources */,
+				26990156169BEF120014A674 /* SBJsonWriter.m in Sources */,
+				26990164169BEF510014A674 /* CameraUtils.m in Sources */,
+				26990165169BEF510014A674 /* Utils.m in Sources */,
+				26990166169BEF510014A674 /* HTTPRequest.m in Sources */,
+				26990167169BEF510014A674 /* ProgressIndicator.m in Sources */,
+				26990168169BEF510014A674 /* AlertUtils.m in Sources */,
+				26990169169BEF510014A674 /* URLConnectionWithTag.m in Sources */,
+				26990171169BF0550014A674 /* MainViewController.m in Sources */,
+				26990172169BF0550014A674 /* LoginViewController.m in Sources */,
+				2699017E169BF1D60014A674 /* FriendViewController.m in Sources */,
+				26990188169BF20C0014A674 /* FriendAddViewController.m in Sources */,
+				2699018E169BF2350014A674 /* TalkListViewController.m in Sources */,
+				269901A7169BF5880014A674 /* SettingViewController.m in Sources */,
+				26BCBCFD169D7EF30045C263 /* TalkRoom.m in Sources */,
+				26BCBD00169D7F100045C263 /* LoginProperties.m in Sources */,
+				26EBF546169E5DF1001F2914 /* TalkViewController.m in Sources */,
+				26EBF550169E6071001F2914 /* HPGrowingTextView.m in Sources */,
+				26EBF551169E6071001F2914 /* HPTextViewInternal.m in Sources */,
+				26EBF55B169EC50F001F2914 /* TalkMessage.m in Sources */,
+				2606559F169F14290099767D /* UIImage+Round.m in Sources */,
+				260655A0169F14290099767D /* UINavigationBar+CustomImage.m in Sources */,
+				260655A1169F14290099767D /* NSDictionary-MutableDeepCopy.m in Sources */,
+				260655A2169F14290099767D /* NSData+Base64.m in Sources */,
+				260655A3169F14290099767D /* NSString+Helpers.m in Sources */,
+				260655A4169F14290099767D /* NSString+Util.m in Sources */,
+				260655A5169F14290099767D /* NSString+XMLExtensions.m in Sources */,
+				267C5BC9169FDDFD0020E721 /* CustomTableCell1.m in Sources */,
+				2620AFAC16A913B900568A0A /* TalkDataManager.m in Sources */,
+				26B39F6E16AFC1AB00927461 /* TalkRoomCell.m in Sources */,
+				2635B32E16B262F100043C13 /* CoreDataHelper.m in Sources */,
+				2635B32F16B262F100043C13 /* MLUtils.m in Sources */,
+				2635B33316B2864000043C13 /* TalkSetReadOperation.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		26D71C84169AA75500D5568D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				26D71C85169AA75500D5568D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		26D71C96169AA75500D5568D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: kyu wan kim (UQ7CM8B432)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: kyu wan kim (UQ7CM8B432)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "300DB267-CBE0-473B-90DC-19EC0FD9C5C0";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "300DB267-CBE0-473B-90DC-19EC0FD9C5C0";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		26D71C97169AA75500D5568D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Byung Kwan Kim (9C8WVJA2LP)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: kyuwan kim (HPR9LXKE36)";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "300DB267-CBE0-473B-90DC-19EC0FD9C5C0";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "106B0F76-F47D-421E-BF49-509855967D27";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		26D71C99169AA75500D5568D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: kyu wan kim (UQ7CM8B432)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JobTalk/JobTalk-Prefix.pch";
+				INFOPLIST_FILE = "JobTalk/JobTalk-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "300DB267-CBE0-473B-90DC-19EC0FD9C5C0";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		26D71C9A169AA75500D5568D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: kyuwan kim (HPR9LXKE36)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JobTalk/JobTalk-Prefix.pch";
+				INFOPLIST_FILE = "JobTalk/JobTalk-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "106B0F76-F47D-421E-BF49-509855967D27";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		26D71C6F169AA75500D5568D /* Build configuration list for PBXProject "JobTalk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26D71C96169AA75500D5568D /* Debug */,
+				26D71C97169AA75500D5568D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		26D71C98169AA75500D5568D /* Build configuration list for PBXNativeTarget "JobTalk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26D71C99169AA75500D5568D /* Debug */,
+				26D71C9A169AA75500D5568D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		26D71C93169AA75500D5568D /* JobTalk.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				26D71C94169AA75500D5568D /* JobTalk.xcdatamodel */,
+			);
+			currentVersion = 26D71C94169AA75500D5568D /* JobTalk.xcdatamodel */;
+			path = JobTalk.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 26D71C6C169AA75500D5568D /* Project object */;
+}
