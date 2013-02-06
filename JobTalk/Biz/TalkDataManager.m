@@ -519,28 +519,56 @@
 }
 
 - (void)deleteTalkRoom:(NSNumber *)masterUid {
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc]init];
     NSEntityDescription *entiryDescription = [NSEntityDescription entityForName:@"TalkRoom" inManagedObjectContext:self.managedObjectContext];
-    [fetchRequest setEntity:entiryDescription];
-    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"talk_id=%d",[talkID intValue]]];
+    [request setEntity:entiryDescription];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"master_uid=%d",[masterUid intValue]]];
     NSError *error;
     NSArray *items = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
-    NSLog(@"items count=%d", items.count);
-    [fetchRequest release];
+
+    [request release];
     
     for(NSManagedObject *item in items) {
-        //TalkRoom *talkRoom = (TalkRoom*)item;
-        NSLog(@"master_uid=%@", item);
+
+        NSLog(@"delete talkRoom=%@", item);
+        [self.managedObjectContext deleteObject:item];
+    }
+    
+}
+
+- (void)deleteTalkMessage:(NSNumber *)talkID {
+    NSFetchRequest *request = [[NSFetchRequest alloc]init];
+    NSEntityDescription *entiryDescription = [NSEntityDescription entityForName:@"TalkMessage" inManagedObjectContext:self.managedObjectContext];
+    [request setEntity:entiryDescription];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"talk_id=%d",[talkID intValue]]];
+    NSError *error;
+    NSArray *items = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    [request release];
+    
+    for(NSManagedObject *item in items) {
+        
+        NSLog(@"delete talkMessage=%@", item);
         [self.managedObjectContext deleteObject:item];
     }
 }
 
-- (void)deleteTalkMessage:(NSNumber *)talkID {
-    
-}
-
 - (void)deleteTalkMessageByMasterUid:(NSNumber *)masterUid {
+    NSFetchRequest *request = [[NSFetchRequest alloc]init];
+    NSEntityDescription *entiryDescription = [NSEntityDescription entityForName:@"TalkMessage" inManagedObjectContext:self.managedObjectContext];
+    [request setEntity:entiryDescription];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"master_uid=%d",[masterUid intValue]]];
+    NSError *error;
+    NSArray *items = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
+    [request release];
+    
+    for(NSManagedObject *item in items) {
+        
+        //NSLog(@"delete talkMessageByMasterUid=%@", item);
+        [self.managedObjectContext deleteObject:item];
+    }
 }
 
 @end
