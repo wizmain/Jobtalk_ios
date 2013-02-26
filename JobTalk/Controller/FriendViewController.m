@@ -13,14 +13,18 @@
 #import "JSON.h"
 #import "TalkViewController.h"
 #import "Utils.h"
+#import "FriendListCell.h"
 
 #define kFriendListTag  @"friendlist"
 #define kMakeTalkTag   @"maketalk"
+#define kFriendDelTag   @"frienddel"
 
 @interface FriendViewController ()
 @property (nonatomic, retain) IBOutlet UITableView *friendTable;
-@property (nonatomic, retain) NSArray *friendList;
+@property (nonatomic, retain) IBOutlet UIActivityIndicatorView *spinner;
+@property (nonatomic, retain) NSMutableArray *friendList;
 @property (nonatomic, assign) NSUInteger selectedIndex;
+
 @end
 
 @implementation FriendViewController
@@ -28,6 +32,7 @@
 @synthesize friendTable;
 @synthesize friendList;
 @synthesize selectedIndex;
+@synthesize spinner;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -51,12 +56,16 @@
     //UIButton *editButton = [UIButton buttonWithType:UIButtonTypeCustom];
     //[editButton setBackgroundImage:[UIImage imageNamed:@"nav_back"] forState:UIControlStateNormal];
     //editButton.frame = CGRectMake(0, 0, 48, 30);
+    
+    /*
     UIButton *editButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [editButton setTitle:@"Edit" forState:UIControlStateNormal];
     [editButton addTarget:self action:@selector(friendEdit) forControlEvents:UIControlEventTouchUpInside];
     editButton.frame = CGRectMake(0, 0, 48, 30);
     self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:editButton] autorelease];
     [editButton release];
+    */
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
     //UIButton *addButton = [UIButton buttonWithType:UIButtonTypeCustom];
     //[addButton setBackgroundImage:[UIImage imageNamed:@"105-AddUser"] forState:UIControlStateNormal];
@@ -90,6 +99,7 @@
     // e.g. self.myOutlet = nil;
 	self.friendList = nil;
     self.friendTable = nil;
+    self.spinner = nil;
     [[[AppDelegate sharedAppDelegate] httpRequest] cancel];
 }
 
@@ -98,6 +108,7 @@
 - (void)dealloc {
 	[friendList release];
     [friendTable release];
+    [spinner release];
     [super dealloc];
 }
 
@@ -109,10 +120,13 @@
 }
 
 - (void)friendEdit {
-    
+    self.friendTable.editing = !self.friendTable.editing;
 }
 
 - (void)bindFriendList {
+    
+    [self.spinner startAnimating];
+    
     NSString *url = [kServerUrl stringByAppendingFormat:@"%@",kFriendListUrl];
 	NSLog(@"url = %@", url);
     
@@ -131,6 +145,21 @@
      NSString *resultData = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
      [self didReceiveFinished:resultData];
      */
+}
+
+- (void)deleteFriend:(NSInteger)friendID{
+    [self.spinner startAnimating];
+    HTTPRequest *httpRequest = [[AppDelegate sharedAppDelegate] httpRequest];
+    NSString *friendIDString = [NSString stringWithFormat:@"%d", friendID];
+    NSLog(@"deleteFriend friendID=%@", friendIDString);
+    NSDictionary *bodyObject = [NSDictionary dictionaryWithObjectsAndKeys:friendIDString,@"uid", nil];
+    
+    
+    [httpRequest setDelegate:self selector:@selector(didReceiveFinished:)];
+	NSString *url = [kServerUrl stringByAppendingFormat:@"%@",kFriendDelUrl];
+	//페이지 호출
+	[httpRequest requestUrl:url bodyObject:bodyObject httpMethod:@"POST" withTag:kFriendDelTag];
+
 }
 
 #pragma mark -
@@ -152,7 +181,7 @@
     NSLog(@"tag=%@ resultString=%@", tag, resultString);
     
     if([tag isEqualToString:kFriendListTag]) {
-        self.friendList = (NSArray *)[resultData objectForKey:@"result"];
+        self.friendList = (NSMutableArray *)[resultData objectForKey:@"result"];
         
         if (friendList) {
             
@@ -192,14 +221,27 @@
         UINavigationController *naviCon = [[UINavigationController alloc] initWithRootViewController:talkController];
         
         [self presentModalViewController:naviCon animated:YES];
+        
+    } else if([tag isEqualToString:kFriendDelTag]) {
+        int deleteUid = [[NSString stringWithFormat:@"%@",[resultData objectForKey:@"friendUid"]] intValue];
+        for (int i=0; i<self.friendList.count; i++) {
+            
+            NSDictionary *item = [self.friendList objectAtIndex:i];
+            int friendID = [[NSString stringWithFormat:@"%@",[item objectForKey:@"by_mbrid"]] intValue];
+            NSLog(@"friendID=%d deleteUid=%d", friendID, deleteUid);
+            if (friendID == deleteUid) {
+                [self.friendList removeObjectAtIndex:i];
+            }
+        }
+        //[self.friendTable reloadData];
     }
-    
+
 	
 	//[jsonWriter release];
 	//[jsonParser release];
 	
 	
-	
+	[self.spinner stopAnimating];
 }
 
 #pragma mark -
@@ -213,12 +255,15 @@
 	// TODO: Double-check for performance drain later
 	
     static NSString *normalCellIdentifier = @"친구목록";
-    //static NSString *switchCellIdentifier = @"SwitchCell";
-    //static NSString *activityCellIdentifier = @"ActivityCell";
-	//static NSString *textCellIdentifier = @"TextCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:normalCellIdentifier];
-	
+    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:normalCellIdentifier];
+    FriendListCell *cell = [tableView dequeueReusableCellWithIdentifier:normalCellIdentifier];
+    
+	if (cell == nil) {
+        cell = [FriendListCell cellWithNib];
+	}
+
+	/*
 	if (cell == nil) {
 		UIImage *img = [UIImage imageNamed:@"103-Person2"];
 		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:normalCellIdentifier] autorelease];
@@ -226,14 +271,15 @@
 		[cell.imageView setImage:img];
         cell.textLabel.textColor = UIColorFromRGB(0x0b6ad4);
 	}
-	
+	*/
 	NSUInteger row = [indexPath row];
 	
 	if (self.friendList != nil) {
 		
 		if(self.friendList.count > 0){
 			NSDictionary *item = [self.friendList objectAtIndex:row];
-			cell.textLabel.text = [item objectForKey:@"name"];
+			//cell.textLabel.text = [item objectForKey:@"name"];
+            cell.titleLabel.text = [item objectForKey:@"name"];
             /*
             NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
 			[dateFormat setDateFormat:@"yyyy-MM-dd"];
@@ -322,6 +368,48 @@
 	[itemDetail release];
 	itemDetail = nil;
     */
+}
+
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    
+    
+    
+    
+    NSLog(@"setEditing");
+    //[self.talkTable reloadData];
+    if(editing == YES){
+        
+        
+                
+    } else {
+        
+    }
+    [super setEditing:editing animated:animated];
+    
+    [self.friendTable setEditing:editing animated:YES];
+    
+    
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *) indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        // remove the row here.
+        NSLog(@"Delete Click");
+        NSUInteger row = [indexPath row];
+        
+        NSDictionary *item = [self.friendList objectAtIndex:row];
+        NSLog(@"delete item = %@", item);
+        
+        //서버 에서 삭제 호출
+        [self deleteFriend:[[NSString stringWithFormat:@"%@",[item objectForKey:@"uid"]] intValue]];
+        //서버 결과 관계 없이 일단 목록에서 먼저 삭제
+        [self.friendList removeObjectAtIndex:row];
+        
+        [self.friendTable reloadData];
+        
+    }
 }
 
 

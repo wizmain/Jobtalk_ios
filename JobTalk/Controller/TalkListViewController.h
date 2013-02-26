@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 #import "TalkDataManager.h"
 
 @interface TalkListViewController : UIViewController <NSFetchedResultsControllerDelegate, TalkDataManagerDelegate, UITableViewDelegate, UITableViewDataSource>

@@ -29,7 +29,7 @@
 
 @property (nonatomic, assign) id delegate;
 
-+ (TalkDataManager *)sharedManager;
+//+ (TalkDataManager *)sharedManager;
 - (void)requestServerTalkRoomList;
 - (void)requestChatUserList:(NSNumber *)masterUid;
 - (void)requestServerChatData:(NSNumber *)masterUid;
@@ -41,7 +41,11 @@
 - (void)setTalkMessageRead:(NSNumber *)talkID;
 - (int)talkMessageCount:(NSNumber *)masterUid;
 - (int)unreadMessageCnt:(NSNumber *)masterUid;
+- (int)unreadMessageCnt;
+- (NSArray*)unreadMessageList;
 - (void)deleteTalkRoom:(NSNumber *)masterUid;
 - (void)deleteTalkMessage:(NSNumber *)talkID;
 - (void)deleteTalkMessageByMasterUid:(NSNumber *)masterUid;
+- (void)sendAnnounce:(NSString *)msgContent;
+- (void)requestAnnounce;
 @end

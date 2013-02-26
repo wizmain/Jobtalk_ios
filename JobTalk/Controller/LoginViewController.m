@@ -48,7 +48,7 @@
     if (loginProperties != nil) {
 		NSLog(@"not nil");
 		if ([loginProperties userID] != nil) {
-			NSLog(@"%@",[loginProperties userID]);
+			//NSLog(@"%@",[loginProperties userID]);
 			[txtUserID setText:[loginProperties userID]];
 		}
 		if ([loginProperties password] != nil) {
@@ -139,7 +139,7 @@
     NSString *systemVersion = [[UIDevice currentDevice] systemVersion];
     NSString *deviceUuid = [[AppDelegate sharedAppDelegate] deviceUuid];
     NSDictionary *bodyObject = [NSDictionary dictionaryWithObjectsAndKeys:userID,@"userid", password,@"passwd", @"iOS", @"mobile_os", systemVersion, @"mobile_version", deviceUuid, @"device_id", [[AppDelegate sharedAppDelegate] deviceToken], @"device_token", nil];
-    NSLog(@"bodyObject=%@",bodyObject);
+    //NSLog(@"bodyObject=%@",bodyObject);
 	//NSDictionary *bodyObject = [NSDictionary dictionaryWithObjectsAndKeys:userID, @"userid", password, @"passwd", nil];
 	
     
@@ -188,14 +188,15 @@
 	NSDictionary *jsonData = [jsonParser objectWithString:result];
 	NSDictionary *userSession = (NSDictionary *)[jsonData objectForKey:@"userSession"];
 	//NSLog(@"error = %@", error);
-     NSString *key;
-     for (key in jsonData){
-     NSLog(@"Key: %@, Value: %@", key, [jsonData valueForKey:key]);
-     }
-     for (key in userSession){
-     NSLog(@"Key: %@, Value: %@", key, [userSession valueForKey:key]);
-     }
-    
+    /*
+    NSString *key;
+    for (key in jsonData){
+    NSLog(@"Key: %@, Value: %@", key, [jsonData valueForKey:key]);
+    }
+    for (key in userSession){
+    NSLog(@"Key: %@, Value: %@", key, [userSession valueForKey:key]);
+    }
+    */
 	//[error release];
 	[jsonParser release];
 	
@@ -229,10 +230,14 @@
 		//로그인 설정 저장
 		[Utils saveLoginProperties:loginProp];
         
+        //int userRole = [[NSString stringWithFormat:@"%@",[jsonData valueForKey:@"userRole"]] intValue];
+        int userRole = (int)[userSession valueForKey:@"userRole"];
+        NSLog(@"userRole : %@, userRole : %d", [userSession valueForKey:@"userRole"], userRole);
         [[AppDelegate sharedAppDelegate] setIsAuthenticated:YES];
-        [[AppDelegate sharedAppDelegate] setAuthGroup:[jsonData valueForKey:@"userKind"]];
+        [[AppDelegate sharedAppDelegate] setAuthGroup:userRole];
         [[AppDelegate sharedAppDelegate] setAuthUserID:txtUserID.text];
         [[AppDelegate sharedAppDelegate] setAuthUserNo:userNo];
+
         
         /*
         NSString *utf8String = (NSString*)[userSession objectForKey:@"userKName"];
@@ -242,9 +247,9 @@
         */
         
         //NSString *userName = [Utils cookieValue:@"userName"];
-        NSString *userName = @"%EB%B0%95%EC%B4%88%ED%9D%AC";
-        NSLog(@"userName=%@", userName);
-        NSLog(@"userName=%@", [userName stringByUrlDecoding]);
+        //NSString *userName = @"%EB%B0%95%EC%B4%88%ED%9D%AC";
+        //NSLog(@"userName=%@", userName);
+        //NSLog(@"userName=%@", [userName stringByUrlDecoding]);
 		//페이지 전환
 		[[AppDelegate sharedAppDelegate] switchMainView];
         

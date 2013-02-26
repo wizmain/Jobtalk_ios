@@ -33,6 +33,7 @@
     [deviceToken release];
     [httpRequest release];
     [authUserID release];
+    [talkDataManager release];
     [super dealloc];
 }
 
@@ -47,6 +48,9 @@
 @synthesize mainViewController;
 @synthesize version;
 @synthesize deviceToken;
+@synthesize talkDataManager;
+
+SystemSoundID receiveSound4;
 
 + (AppDelegate *)sharedAppDelegate {
 	return (AppDelegate *)[UIApplication sharedApplication].delegate;
@@ -54,19 +58,33 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    NSLog( @"launchOptions Desc: %@", [launchOptions description] );
+    
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    
     
     // Add registration for remote notifications
 	[[UIApplication sharedApplication]
      registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)];
     
 	// Clear application badge when app launches
-	application.applicationIconBadgeNumber = 0;
+	//application.applicationIconBadgeNumber = 0;
+    TalkDataManager *talkManager = [[TalkDataManager alloc] init];
+    NSInteger unreadCnt = [talkManager unreadMessageCnt];
+    application.applicationIconBadgeNumber = unreadCnt;
+    self.talkDataManager = talkManager;
+    [talkManager release];
     
+    // 알림을 통한 진입인지 확인
+    UILocalNotification *localNotif = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    if(localNotif){
+        // 알림으로 인해 앱이 실행된 경우라면..
+        // localNotif.userInfo 등을 이용하여
+        // 알림과 관계된 화면을 보여주는 등의 코드를 진행할 수 있음.
+    }
+
     
     version = [[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString*)kCFBundleVersionKey];
     
@@ -100,8 +118,6 @@
 	}
     
 	[self.window addSubview:self.loginViewController.view];
-    
-    
     
     [self loginProcess];
     
@@ -302,17 +318,10 @@
 
 - (void)didReceiveFinished:(NSString *)result {
 	NSLog(@"receiveData : %@", result);
-	
-	
+
 	// JSON형식 문자열로 Dictionary생성
 	SBJsonParser *jsonParser = [SBJsonParser new];
 	NSDictionary *results = [jsonParser objectWithString:result];
-	
-	NSString *key;
-	for (key in results){
-		NSLog(@"Key: %@, Value: %@", key, [results valueForKey:key]);
-	}
-	
 	[jsonParser release];
     
     NSDictionary *userSession = [results objectForKey:@"userSession"];
@@ -323,7 +332,7 @@
 	if ( [resultStr isEqualToString:@"success"]) {
         
 		self.isAuthenticated = YES;
-        self.authGroup = [userSession valueForKey:@"userKind"];
+        self.authGroup = [userSession valueForKey:@"userRole"];
         
         [self switchMainView];
 	} else {
@@ -423,18 +432,23 @@
     
 	NSString *sound = [apsInfo objectForKey:@"sound"];
 	NSLog(@"Received Push Sound: %@", sound);
-	//AudioServicesPlaySystemSound(sound);
+	AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
     
 	NSString *badge = [apsInfo objectForKey:@"badge"];
 	NSLog(@"Received Push Badge: %@", badge);
-	application.applicationIconBadgeNumber = [[apsInfo objectForKey:@"badge"] integerValue];
+	//application.applicationIconBadgeNumber = [[apsInfo objectForKey:@"badge"] integerValue];
+    //NSLog(@"apsInfo = %@",apsInfo);
     
-    NSLog(@"apsInfo = %@",apsInfo);
-    
+    //application.applicationIconBadgeNumber = [self.talkDataManager unreadMessageCnt];
+    //NSLog(@"badgeNumber = %d", application.applicationIconBadgeNumber);
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"receivePush" object:nil userInfo:userInfo];
     
     
     UIApplicationState state = [application applicationState];
+    //postNoti
+    
     if (state == UIApplicationStateActive) {
+        
         /*
         NSString *cancelTitle = @"닫기";
         NSString *showTitle = @"보기";
@@ -450,17 +464,15 @@
         */
         //TalkDataManager *talkDataManager = [TalkDataManager sharedManager];
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"receivePush" object:nil userInfo:userInfo];
         
-
+        
     } else {
         //Do stuff that you would do if the application was not active
+        //NSLog(@"apsInfo = %@",apsInfo);
     }
 	
 #endif
 }
-
-
 
 
 #pragma mark - Core Data stack
@@ -531,7 +543,7 @@
          */
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
-    }    
+    }
     
     return _persistentStoreCoordinator;
 }

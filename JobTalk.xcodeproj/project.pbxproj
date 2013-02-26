@@ -14,15 +14,27 @@
 		260655A3169F14290099767D /* NSString+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 2606559A169F14290099767D /* NSString+Helpers.m */; };
 		260655A4169F14290099767D /* NSString+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 2606559C169F14290099767D /* NSString+Util.m */; };
 		260655A5169F14290099767D /* NSString+XMLExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2606559E169F14290099767D /* NSString+XMLExtensions.m */; };
+		260C402516D2992600D7EE4B /* TalkAnnounceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 260C402316D2992600D7EE4B /* TalkAnnounceViewController.m */; };
+		260C402616D2992600D7EE4B /* TalkAnnounceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 260C402416D2992600D7EE4B /* TalkAnnounceViewController.xib */; };
+		260C402916D29A8B00D7EE4B /* 275-broadcast.png in Resources */ = {isa = PBXBuildFile; fileRef = 260C402716D29A8B00D7EE4B /* 275-broadcast.png */; };
+		260C402A16D29A8B00D7EE4B /* 275-broadcast@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 260C402816D29A8B00D7EE4B /* 275-broadcast@2x.png */; };
 		2620AFAC16A913B900568A0A /* TalkDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2620AFAB16A913B900568A0A /* TalkDataManager.m */; };
+		2621641316D46CD800C66752 /* SettingProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2621641216D46CD800C66752 /* SettingProperties.m */; };
+		2621641716D48ACF00C66752 /* SettingsEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2621641516D48ACF00C66752 /* SettingsEditViewController.m */; };
+		2621641816D48ACF00C66752 /* SettingsEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2621641616D48ACF00C66752 /* SettingsEditViewController.xib */; };
 		2635B32E16B262F100043C13 /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2635B32A16B262F100043C13 /* CoreDataHelper.m */; };
 		2635B32F16B262F100043C13 /* MLUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2635B32B16B262F100043C13 /* MLUtils.m */; };
 		2635B33316B2864000043C13 /* TalkSetReadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2635B33216B2864000043C13 /* TalkSetReadOperation.m */; };
 		26610D0E16BB58A700B10BEE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26610D0D16BB58A700B10BEE /* QuartzCore.framework */; };
+		267BBB0C16C0DC7F00560285 /* FriendListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 267BBB0B16C0DC7F00560285 /* FriendListCell.m */; };
+		267BBB0E16C0DC9400560285 /* FriendListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 267BBB0D16C0DC9400560285 /* FriendListCell.xib */; };
+		267BBB1116C0EA8700560285 /* friend_out.png in Resources */ = {isa = PBXBuildFile; fileRef = 267BBB0F16C0EA8700560285 /* friend_out.png */; };
+		267BBB1216C0EA8700560285 /* friend_out@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 267BBB1016C0EA8700560285 /* friend_out@2x.png */; };
 		267C5BC3169FDB840020E721 /* 103-Person2.png in Resources */ = {isa = PBXBuildFile; fileRef = 267C5BC1169FDB840020E721 /* 103-Person2.png */; };
 		267C5BC4169FDB840020E721 /* 103-Person2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 267C5BC2169FDB840020E721 /* 103-Person2@2x.png */; };
 		267C5BC6169FDC060020E721 /* CustomTableCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 267C5BC5169FDC060020E721 /* CustomTableCell1.xib */; };
 		267C5BC9169FDDFD0020E721 /* CustomTableCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 267C5BC8169FDDFD0020E721 /* CustomTableCell1.m */; };
+		26813F6516D5BEC2008ACBFD /* received4.caf in Resources */ = {isa = PBXBuildFile; fileRef = 26813F6416D5BEC2008ACBFD /* received4.caf */; };
 		26990142169BEE500014A674 /* app_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 26990141169BEE500014A674 /* app_icon.png */; };
 		26990145169BEE600014A674 /* app_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26990144169BEE600014A674 /* app_icon@2x.png */; };
 		26990152169BEF120014A674 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 26990149169BEF120014A674 /* NSObject+SBJSON.m */; };
@@ -108,8 +120,18 @@
 		2606559C169F14290099767D /* NSString+Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Util.m"; path = "Categories/NSString+Util.m"; sourceTree = "<group>"; };
 		2606559D169F14290099767D /* NSString+XMLExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+XMLExtensions.h"; path = "Categories/NSString+XMLExtensions.h"; sourceTree = "<group>"; };
 		2606559E169F14290099767D /* NSString+XMLExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+XMLExtensions.m"; path = "Categories/NSString+XMLExtensions.m"; sourceTree = "<group>"; };
+		260C402216D2992600D7EE4B /* TalkAnnounceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TalkAnnounceViewController.h; path = Controller/TalkAnnounceViewController.h; sourceTree = "<group>"; };
+		260C402316D2992600D7EE4B /* TalkAnnounceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TalkAnnounceViewController.m; path = Controller/TalkAnnounceViewController.m; sourceTree = "<group>"; };
+		260C402416D2992600D7EE4B /* TalkAnnounceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TalkAnnounceViewController.xib; path = Controller/TalkAnnounceViewController.xib; sourceTree = "<group>"; };
+		260C402716D29A8B00D7EE4B /* 275-broadcast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "275-broadcast.png"; path = "Images/275-broadcast.png"; sourceTree = "<group>"; };
+		260C402816D29A8B00D7EE4B /* 275-broadcast@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "275-broadcast@2x.png"; path = "Images/275-broadcast@2x.png"; sourceTree = "<group>"; };
 		2620AFAA16A913B900568A0A /* TalkDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TalkDataManager.h; path = Biz/TalkDataManager.h; sourceTree = "<group>"; };
 		2620AFAB16A913B900568A0A /* TalkDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TalkDataManager.m; path = Biz/TalkDataManager.m; sourceTree = "<group>"; };
+		2621641116D46CD800C66752 /* SettingProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingProperties.h; path = Model/SettingProperties.h; sourceTree = "<group>"; };
+		2621641216D46CD800C66752 /* SettingProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingProperties.m; path = Model/SettingProperties.m; sourceTree = "<group>"; };
+		2621641416D48ACF00C66752 /* SettingsEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsEditViewController.h; path = Controller/SettingsEditViewController.h; sourceTree = "<group>"; };
+		2621641516D48ACF00C66752 /* SettingsEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsEditViewController.m; path = Controller/SettingsEditViewController.m; sourceTree = "<group>"; };
+		2621641616D48ACF00C66752 /* SettingsEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingsEditViewController.xib; path = Controller/SettingsEditViewController.xib; sourceTree = "<group>"; };
 		2635B32A16B262F100043C13 /* CoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataHelper.m; path = Utils/CoreDataHelper.m; sourceTree = "<group>"; };
 		2635B32B16B262F100043C13 /* MLUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MLUtils.m; path = Utils/MLUtils.m; sourceTree = "<group>"; };
 		2635B32C16B262F100043C13 /* MLUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MLUtils.h; path = Utils/MLUtils.h; sourceTree = "<group>"; };
@@ -117,11 +139,17 @@
 		2635B33116B2864000043C13 /* TalkSetReadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TalkSetReadOperation.h; path = Controller/TalkSetReadOperation.h; sourceTree = "<group>"; };
 		2635B33216B2864000043C13 /* TalkSetReadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TalkSetReadOperation.m; path = Controller/TalkSetReadOperation.m; sourceTree = "<group>"; };
 		26610D0D16BB58A700B10BEE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		267BBB0A16C0DC7F00560285 /* FriendListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendListCell.h; path = Controller/FriendListCell.h; sourceTree = "<group>"; };
+		267BBB0B16C0DC7F00560285 /* FriendListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendListCell.m; path = Controller/FriendListCell.m; sourceTree = "<group>"; };
+		267BBB0D16C0DC9400560285 /* FriendListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendListCell.xib; sourceTree = "<group>"; };
+		267BBB0F16C0EA8700560285 /* friend_out.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = friend_out.png; path = Images/friend_out.png; sourceTree = "<group>"; };
+		267BBB1016C0EA8700560285 /* friend_out@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "friend_out@2x.png"; path = "Images/friend_out@2x.png"; sourceTree = "<group>"; };
 		267C5BC1169FDB840020E721 /* 103-Person2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "103-Person2.png"; path = "Images/103-Person2.png"; sourceTree = "<group>"; };
 		267C5BC2169FDB840020E721 /* 103-Person2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "103-Person2@2x.png"; path = "Images/103-Person2@2x.png"; sourceTree = "<group>"; };
 		267C5BC5169FDC060020E721 /* CustomTableCell1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomTableCell1.xib; path = Controller/CustomTableCell1.xib; sourceTree = "<group>"; };
 		267C5BC7169FDDFD0020E721 /* CustomTableCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomTableCell1.h; path = Controller/CustomTableCell1.h; sourceTree = "<group>"; };
 		267C5BC8169FDDFD0020E721 /* CustomTableCell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomTableCell1.m; path = Controller/CustomTableCell1.m; sourceTree = "<group>"; };
+		26813F6416D5BEC2008ACBFD /* received4.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = received4.caf; sourceTree = "<group>"; };
 		26990141169BEE500014A674 /* app_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = app_icon.png; sourceTree = "<group>"; };
 		26990144169BEE600014A674 /* app_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_icon@2x.png"; sourceTree = "<group>"; };
 		26990147169BEF120014A674 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSON.h; path = JSON/JSON.h; sourceTree = "<group>"; };
@@ -323,6 +351,9 @@
 				26EBF543169E5DF1001F2914 /* TalkViewController.h */,
 				26EBF544169E5DF1001F2914 /* TalkViewController.m */,
 				26EBF545169E5DF1001F2914 /* TalkViewController.xib */,
+				260C402216D2992600D7EE4B /* TalkAnnounceViewController.h */,
+				260C402316D2992600D7EE4B /* TalkAnnounceViewController.m */,
+				260C402416D2992600D7EE4B /* TalkAnnounceViewController.xib */,
 				2699016D169BF0550014A674 /* LoginViewController.h */,
 				2699016E169BF0550014A674 /* LoginViewController.m */,
 				2699016F169BF0550014A674 /* LoginViewController.xib */,
@@ -338,6 +369,9 @@
 				269901A4169BF5880014A674 /* SettingViewController.h */,
 				269901A5169BF5880014A674 /* SettingViewController.m */,
 				269901A6169BF5880014A674 /* SettingViewController.xib */,
+				2621641416D48ACF00C66752 /* SettingsEditViewController.h */,
+				2621641516D48ACF00C66752 /* SettingsEditViewController.m */,
+				2621641616D48ACF00C66752 /* SettingsEditViewController.xib */,
 				267C5BC7169FDDFD0020E721 /* CustomTableCell1.h */,
 				267C5BC8169FDDFD0020E721 /* CustomTableCell1.m */,
 				267C5BC5169FDC060020E721 /* CustomTableCell1.xib */,
@@ -346,6 +380,9 @@
 				26B39F6F16AFC1CA00927461 /* TalkRoomCell.xib */,
 				2635B33116B2864000043C13 /* TalkSetReadOperation.h */,
 				2635B33216B2864000043C13 /* TalkSetReadOperation.m */,
+				267BBB0A16C0DC7F00560285 /* FriendListCell.h */,
+				267BBB0B16C0DC7F00560285 /* FriendListCell.m */,
+				267BBB0D16C0DC9400560285 /* FriendListCell.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -353,6 +390,10 @@
 		2699018F169BF4400014A674 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				260C402716D29A8B00D7EE4B /* 275-broadcast.png */,
+				260C402816D29A8B00D7EE4B /* 275-broadcast@2x.png */,
+				267BBB0F16C0EA8700560285 /* friend_out.png */,
+				267BBB1016C0EA8700560285 /* friend_out@2x.png */,
 				26F062BE16C0A6F1008F6414 /* talkout.png */,
 				26F062BF16C0A6F1008F6414 /* talkout@2x.png */,
 				26F062BA16C0A32D008F6414 /* redbutton.png */,
@@ -382,6 +423,8 @@
 		269901AA169BFEE60014A674 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2621641116D46CD800C66752 /* SettingProperties.h */,
+				2621641216D46CD800C66752 /* SettingProperties.m */,
 				26D71C93169AA75500D5568D /* JobTalk.xcdatamodeld */,
 				26EBF559169EC50F001F2914 /* TalkMessage.h */,
 				26EBF55A169EC50F001F2914 /* TalkMessage.m */,
@@ -450,6 +493,7 @@
 		26D71C82169AA75500D5568D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				26813F6416D5BEC2008ACBFD /* received4.caf */,
 				2699018F169BF4400014A674 /* Images */,
 				26D71C83169AA75500D5568D /* JobTalk-Info.plist */,
 				26D71C84169AA75500D5568D /* InfoPlist.strings */,
@@ -561,6 +605,14 @@
 				26F062BD16C0A32D008F6414 /* redbutton@2x.png in Resources */,
 				26F062C016C0A6F1008F6414 /* talkout.png in Resources */,
 				26F062C116C0A6F1008F6414 /* talkout@2x.png in Resources */,
+				267BBB0E16C0DC9400560285 /* FriendListCell.xib in Resources */,
+				267BBB1116C0EA8700560285 /* friend_out.png in Resources */,
+				267BBB1216C0EA8700560285 /* friend_out@2x.png in Resources */,
+				260C402616D2992600D7EE4B /* TalkAnnounceViewController.xib in Resources */,
+				260C402916D29A8B00D7EE4B /* 275-broadcast.png in Resources */,
+				260C402A16D29A8B00D7EE4B /* 275-broadcast@2x.png in Resources */,
+				2621641816D48ACF00C66752 /* SettingsEditViewController.xib in Resources */,
+				26813F6516D5BEC2008ACBFD /* received4.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,6 +662,10 @@
 				2635B32E16B262F100043C13 /* CoreDataHelper.m in Sources */,
 				2635B32F16B262F100043C13 /* MLUtils.m in Sources */,
 				2635B33316B2864000043C13 /* TalkSetReadOperation.m in Sources */,
+				267BBB0C16C0DC7F00560285 /* FriendListCell.m in Sources */,
+				260C402516D2992600D7EE4B /* TalkAnnounceViewController.m in Sources */,
+				2621641316D46CD800C66752 /* SettingProperties.m in Sources */,
+				2621641716D48ACF00C66752 /* SettingsEditViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

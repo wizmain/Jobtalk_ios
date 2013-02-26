@@ -24,5 +24,6 @@
 - (void)switchLoginView;
 - (void)switchTabView:(NSInteger)tabIndex;
 - (void)switchTalkView:(NSInteger)masterUid;
-
+- (void)setTabBarBadgeNumber:(NSInteger)tabID badgeValue:(NSString*)badgeValue;
+- (void)updateUnReadTalkCount;
 @end

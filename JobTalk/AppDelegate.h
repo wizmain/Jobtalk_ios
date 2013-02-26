@@ -10,7 +10,7 @@
 #import "HTTPRequest.h"
 #import "MainViewController.h"
 #import "LoginViewController.h"
-
+@class TalkDataManager;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -28,9 +28,9 @@
 @property (nonatomic, assign) BOOL isAuthenticated;
 @property (nonatomic, retain) NSString *authUserID;
 @property (nonatomic, assign) int authUserNo;
-@property (nonatomic, retain) NSString *authGroup;
+@property (nonatomic, assign) int authGroup;
 @property (nonatomic, retain) NSString *deviceToken;
-
+@property (nonatomic, retain) TalkDataManager *talkDataManager;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;

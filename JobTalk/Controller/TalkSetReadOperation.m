@@ -15,7 +15,7 @@
     self = [super init];
     if (self != nil) {
         _talkID = [talkID retain];
-        _talkDataManager = [[TalkDataManager sharedManager] retain];
+        _talkDataManager = [[TalkDataManager alloc] init];
     }
     return self;
 }

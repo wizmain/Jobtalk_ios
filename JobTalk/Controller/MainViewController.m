@@ -12,14 +12,21 @@
 #import "FriendAddViewController.h"
 #import "SettingViewController.h"
 #import "TalkViewController.h"
+#import "TalkAnnounceViewController.h"
+#import "AppDelegate.h"
+#import "Constant.h"
+#import "TalkMessage.h"
 
 @interface MainViewController ()
+
+@property (nonatomic, retain) TalkDataManager *talkDataManager;
 
 @end
 
 @implementation MainViewController
 
 @synthesize tabController, naviController, loginController, isRotate;
+@synthesize talkDataManager;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,7 +48,11 @@
     self.view.backgroundColor = backImg;
     [backImg release];
     
+    TalkDataManager *talkManager = [[TalkDataManager alloc] init];
+    self.talkDataManager = talkManager;
+    [talkManager release];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivePush:) name:kNotiName object:nil];
     
     /*
     UITabBarController *tab = [[UITabBarController alloc] init];
@@ -111,6 +122,7 @@
             UINavigationController *tab2Navi = [[UINavigationController alloc] initWithRootViewController:tab2];
             [[tab2Navi tabBarItem] setImage:[UIImage imageNamed:@"036-SMS"]];
             [[tab2Navi tabBarItem] setTitle:@"채팅"];
+
             [tab2 release];
             
             //if([tab2Navi.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)]) {
@@ -140,8 +152,24 @@
             
             //[naviBg release];
             //naviBg = nil;
+            NSLog(@"authGroup %d", [[AppDelegate sharedAppDelegate] authGroup]);
+            if([[AppDelegate sharedAppDelegate] authGroup] > 1) {
+                
+                TalkAnnounceViewController *talkAnnounce = [[TalkAnnounceViewController alloc] initWithNibName:@"TalkAnnounceViewController" bundle:nil];
+                UINavigationController *tab5Navi = [[UINavigationController alloc] initWithRootViewController:talkAnnounce];
+                [[tab5Navi tabBarItem] setImage:[UIImage imageNamed:@"275-broadcast"]];
+                [[tab5Navi tabBarItem] setTitle:@"공지전송"];
+                [talkAnnounce release];
+                
+                tab.viewControllers = [NSArray arrayWithObjects:tab1Navi, tab2Navi, tab3Navi, tab5Navi, tab4Navi, nil];
+                [tab5Navi release];
+                
+            } else {
             
-            tab.viewControllers = [NSArray arrayWithObjects:tab1Navi, tab2Navi, tab3Navi, tab4Navi, nil];
+                tab.viewControllers = [NSArray arrayWithObjects:tab1Navi, tab2Navi, tab3Navi, tab4Navi, nil];
+                
+            }
+            
             //tab.tabBar.backgroundImage = [UIImage imageNamed:@"tabbar_bg"];
             [tab1Navi release];
             [tab2Navi release];
@@ -155,6 +183,10 @@
      
         }
     }
+    
+    
+    NSInteger unreadCnt = [self.talkDataManager unreadMessageCnt];
+    [self setTabBarBadgeNumber:1 badgeValue:[NSString stringWithFormat:@"%d",unreadCnt]];
     
     [self.view addSubview:self.tabController.view];
     
@@ -175,6 +207,8 @@
     self.loginController = nil;
     self.tabController = nil;
     self.naviController = nil;
+    self.talkDataManager = nil;
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kNotiName object:nil];
 }
 
 - (void)dealloc
@@ -182,6 +216,7 @@
     [loginController release];
     [tabController release];
     [naviController release];
+    [talkDataManager release];
     [super dealloc];
 }
 
@@ -201,8 +236,38 @@
 
 #pragma mark -
 #pragma mark Custom Method
+- (void)receivePush:(NSNotification*)notif {
+    
+    NSDictionary *userInfo = [notif userInfo];
+    NSLog(@"MainViewController receivePush userInfo=%@", userInfo);
+    int masterUid = [[NSString stringWithFormat:@"%@",[userInfo valueForKey:@"master_uid"]] integerValue];
+    //NSLog(@"didReceiveRemoteNotification masterUid=%d", masterUid);
+    
+    [self.talkDataManager setDelegate:self];
+    if(masterUid > 0){
+        [self.talkDataManager requestServerChatData:[NSNumber numberWithInt:masterUid]];
+    } else if(masterUid==0){//공지사항
+        [self.talkDataManager requestAnnounce];
+    }
+    
+}
 
+- (void)bindTalkData:(NSMutableArray *)talkData {
+    NSArray *unreadMessage = [self.talkDataManager unreadMessageList];
+    for(TalkMessage *m in unreadMessage) {
+        NSLog(@"talkUid=%d, talkMessage=%d",[m.master_uid intValue], [m.talk_id intValue]);
+    }
+    
+    [self updateUnReadTalkCount];
+}
 
+- (void)updateUnReadTalkCount {
+    NSInteger unreadCnt = [self.talkDataManager unreadMessageCnt];
+    NSLog(@"MainViewController bindTalkData badgeValue=%d", unreadCnt);
+    [self setTabBarBadgeNumber:1 badgeValue:[NSString stringWithFormat:@"%d",unreadCnt]];
+    //application.applicationIconBadgeNumber = [[apsInfo objectForKey:@"badge"] integerValue];
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:unreadCnt];
+}
 
 //로그인 화면으로 변경
 - (void)switchLoginView {
@@ -256,6 +321,11 @@
 	[self.view addSubview:self.tabController.view];
 	self.tabController.selectedIndex = tabIndex;
     [self.tabController viewWillAppear:NO];
+}
+
+- (void)setTabBarBadgeNumber:(NSInteger)tabID badgeValue:(NSString *)badgeValue {
+    UITabBarItem *tab = (UITabBarItem*)[self.tabController.tabBar.items objectAtIndex:tabID];
+    tab.badgeValue = badgeValue;
 }
 
 #pragma mark -

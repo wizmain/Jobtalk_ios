@@ -17,7 +17,6 @@
 
 #define kCacheName  @"cache"
 #define kTalkRoomCellHeight 80
-#define kNotiName   @"receivePush"
 #define kCellShiftWidth     32
 
 @interface TalkListViewController ()
@@ -52,6 +51,7 @@
     [super viewDidLoad];
     
     // Do any additional setup after loading the view from its nib.
+    
     self.isEditMode = NO;
     UIButton *addButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     //[addButton setTitle:@"추가" forState:UIControlStateNormal];
@@ -79,7 +79,8 @@
     }
     
     //서버에 방 데이타를 가져온다.
-    self.talkDataManager = [TalkDataManager sharedManager];
+    TalkDataManager *talkManager = [[TalkDataManager alloc] init];
+    self.talkDataManager = talkManager;
     
     
     
@@ -108,6 +109,7 @@
 - (void)dealloc {
 	[talkList release];
     [talkTable release];
+    [talkDataManager release];
     [_fetchedResultsController release];
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kNotiName object:nil];
@@ -116,18 +118,22 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     
-    NSLog(@"viewWillAppear");
+    NSLog(@"TalkListViewController viewWillAppear");
     [super viewWillAppear:animated];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivePush:) name:kNotiName object:nil];
     [self.talkDataManager setDelegate:self];//싱글톤이라 델리게이트 사용 신중히 항상 새로 셋팅해야함 다른데서 델리게이트 설정했을지 모르니
     [self.talkDataManager requestServerTalkRoomList];
     
+    NSInteger unreadCnt = [self.talkDataManager unreadMessageCnt];
+    [[[AppDelegate sharedAppDelegate] mainViewController] setTabBarBadgeNumber:1 badgeValue:[NSString stringWithFormat:@"%d",unreadCnt]];
+    
+    [self reloadFetchController];
 
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    NSLog(@"viewWillDisappear");
+    NSLog(@"TalkListViewController viewWillDisappear");
     [super viewWillDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kNotiName object:nil];
     
@@ -158,10 +164,16 @@
 }
 
 - (void)receivePush:(NSNotification*)notif {
-    NSLog(@"receivePush");
+    
     NSDictionary *userInfo = [notif userInfo];
+    NSLog(@"TalkListViewController receivePush %@", userInfo);
+    [self.talkDataManager setDelegate:self];
     int masterUid = [[NSString stringWithFormat:@"%@",[userInfo valueForKey:@"master_uid"]] integerValue];
-    [self.talkDataManager requestServerChatData:[NSNumber numberWithInt:masterUid]];
+    if(masterUid == 0){
+        [self.talkDataManager requestAnnounce];
+    } else {
+        [self.talkDataManager requestServerChatData:[NSNumber numberWithInt:masterUid]];
+    }
     
 }
 
@@ -172,7 +184,7 @@
 - (void)deleteAll:(id)sender {
     
     NSLog(@"deletaAll");
-    
+    /*
     TalkRoom *insertTalkRoom = [NSEntityDescription insertNewObjectForEntityForName:@"TalkRoom" inManagedObjectContext:self.managedObjectContext];
     insertTalkRoom.name = @"test";
     insertTalkRoom.master_uid = [NSNumber numberWithInt:999];
@@ -189,7 +201,7 @@
     } else {
         
     }
-    
+    */
     /*
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
     NSEntityDescription *entiryDescription = [NSEntityDescription entityForName:@"TalkRoom" inManagedObjectContext:self.managedObjectContext];
@@ -204,16 +216,31 @@
         NSLog(@"master_uid=%@", item);
         [self.managedObjectContext deleteObject:item];
     }
-    
-    [self reloadFetchController];
     */
+    //[self reloadFetchController];
     
+    [self.talkDataManager deleteTalkMessageByMasterUid:[NSNumber numberWithInt:25]];
+    
+}
+
+- (void)talkOut:(NSInteger)masterUid {
+    NSString *url = [kServerUrl stringByAppendingFormat:@"%@?talk_uid=%d",kTalkOutUrl, masterUid];
+	NSLog(@"url = %@", url);
+    
+    //request생성
+	HTTPRequest *httpRequest = [[AppDelegate sharedAppDelegate] httpRequest];
+    
+	//통신완료 후 호출할 델리게이트 셀렉터 설정
+	[httpRequest setDelegate:self selector:@selector(didReceiveFinished:)];
+	//페이지 호출
+	[httpRequest requestUrl:url bodyObject:nil httpMethod:@"GET" withTag:nil];
 }
 
 
 #pragma mark -
 #pragma mark TalkDataManager Delegate
 - (void)bindTalkRoom:(NSMutableArray*)talkRoomData {
+    NSLog(@"bindTalkRoom");
     self.talkList = talkRoomData;
     [self reloadFetchController];
 }
@@ -227,11 +254,22 @@
     }
     
     [self reloadFetchController];
+    /*
+    NSInteger unreadCount = [self.talkDataManager unreadMessageCnt];
+    [[[AppDelegate sharedAppDelegate] mainViewController] setTabBarBadgeNumber:1 badgeValue:[NSString stringWithFormat:@"%d", unreadCount]];
+    */
 }
 
 #pragma mark -
 #pragma mark Connection Result Delegate
-
+- (void)didReceiveFinished:(NSString *)result {
+	NSLog(@"receiveData : %@", result);
+	
+	// JSON형식 문자열로 Dictionary생성
+	//SBJsonParser *jsonParser = [SBJsonParser new];
+    //NSDictionary *jsonObj = [jsonParser objectWithString:result];
+    //NSDictionary *resultData = [jsonObj objectForKey:@"resultData"];
+}
 
 #pragma mark -
 #pragma mark Fetched results controller
@@ -252,9 +290,9 @@
     
     // Create the sort descriptors array.
     NSSortDescriptor *dateDescriptor = [[NSSortDescriptor alloc] initWithKey:@"last_message_date" ascending:NO];
-    //NSSortDescriptor *nameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    NSSortDescriptor *masterUidDescriptor = [[NSSortDescriptor alloc] initWithKey:@"master_uid" ascending:YES];
 
-    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:dateDescriptor, nil];
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:masterUidDescriptor, dateDescriptor, nil];
     [fetchRequest setSortDescriptors:sortDescriptors];
     
     
@@ -471,15 +509,9 @@
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
     
-
-    
-    
     NSLog(@"setEditing");
     //[self.talkTable reloadData];
     if(editing == YES){
-        
-        
-        
         
         for (UITableViewCell *cell in [self.talkTable visibleCells]) {
             //NSIndexPath *path = [self.talkTable indexPathForCell:cell];
@@ -591,11 +623,12 @@
     {
         // remove the row here.
         NSLog(@"Delete Click");
+        TalkRoom *talkRoom = [self.fetchedResultsController objectAtIndexPath:indexPath];
         
-        self.talkDataManager 
+        [self.talkDataManager deleteTalkMessageByMasterUid:talkRoom.master_uid];
+        [self.talkDataManager deleteTalkRoom:talkRoom.master_uid];
         
-        self.talkTable.editing = NO;
-        
+        [self talkOut:[talkRoom.master_uid integerValue]];
     }
 }
 

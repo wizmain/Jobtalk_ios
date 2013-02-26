@@ -107,7 +107,8 @@
 	
 	toolbar.items = [[NSArray alloc] initWithObjects:textField, sendButton, nil];
     
-    self.talkDataManager = [TalkDataManager sharedManager];
+    TalkDataManager *talkManager = [[TalkDataManager alloc] init];
+    self.talkDataManager = talkManager;
     [self.talkDataManager setDelegate:self];
 
     //기존 대화방 입장이면 대화대상자 정보 가져온다.
@@ -172,6 +173,8 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     self.talkDataManager.delegate = nil;
     
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:[self.talkDataManager unreadMessageCnt]];
+    
 }
 
 - (void)viewDidUnload {
@@ -206,7 +209,7 @@
     [talkTable release];
     [_fetchedResultsController release];
     [_messageReadQueue release];
-    
+    [talkDataManager release];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kNotiName object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [super dealloc];
@@ -265,13 +268,10 @@
 }
 
 - (void)talkMessageRead:(NSNumber *)talkID {
-    
-    //NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     NSLog(@"talkMessageRead talkID=%@", talkID);
     if(self.talkDataManager) {
         [self.talkDataManager setTalkMessageRead:talkID];
     }
-    //[pool release];
 }
 
 - (void)closeTalk:(id)sender {
@@ -305,8 +305,25 @@
     NSLog(@"talkOut");
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     //[self dismissModalViewControllerAnimated:YES];
+    
+    [self.talkDataManager deleteTalkMessageByMasterUid:[NSNumber numberWithInt:self.talkUid]];
+    [self.talkDataManager deleteTalkRoom:[NSNumber numberWithInt:self.talkUid]];
+    
+    
+    NSString *url = [kServerUrl stringByAppendingFormat:@"%@?talk_uid=%d",kTalkOutUrl, self.talkUid];
+    //request생성
+	HTTPRequest *httpRequest = [[AppDelegate sharedAppDelegate] httpRequest];
+    
+	//통신완료 후 호출할 델리게이트 셀렉터 설정
+	//[httpRequest setDelegate:self selector:@selector(didReceiveFinished:)];
+	//페이지 호출
+	[httpRequest requestUrl:url bodyObject:nil httpMethod:@"GET" withTag:nil];
+    
+    [[[AppDelegate sharedAppDelegate] mainViewController] updateUnReadTalkCount];
+    
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 
 - (BOOL)isExistTalk:(NSNumber *)talkID {
     
@@ -490,112 +507,7 @@
 
 #pragma mark -
 #pragma mark HTTPRequest delegate
-/*
-- (void)didReceiveFinished:(NSString*) result {
-    // JSON형식 문자열로 Dictionary생성
-	SBJsonParser *jsonParser = [SBJsonParser new];
-    NSDictionary *jsonObj = [jsonParser objectWithString:result];
-    NSDictionary *resultData = [jsonObj objectForKey:@"resultData"];
-    
-    NSString *tag = [resultData valueForKey:@"tag"];
-    NSLog(@"resultData =%@", resultData);
-    NSLog(@"tag==%@",tag);
-    NSDictionary *resultObj = [resultData objectForKey:@"result"];
-    SBJsonWriter *jsonWriter = [SBJsonWriter new];
-    NSString *resultString = [jsonWriter stringWithObject:resultObj];
-    NSLog(@"tag=%@ resultString=%@", tag, resultString);
-    
-    if([tag isEqualToString:kChatUserDataTag]) {
-        self.chatUsers = (NSMutableArray *)[resultData objectForKey:@"result"];
-    } else if([tag isEqualToString:kTalkDataTag]) {
-        NSArray *serverChatData = (NSArray *)[resultData objectForKey:@"result"];
-        if(serverChatData){
-            
-            if(serverChatData.count > 0){
-                
-                for (int i=0; i<serverChatData.count; i++) {
-                    NSDictionary *talkMessage = [serverChatData objectAtIndex:i];
-                    
-                    //로컬에 저장되어 있지 않으면 로컬에 대화저장
-                    if(![self isExistTalk:[NSNumber numberWithInt:[[NSString stringWithFormat:@"%@", [talkMessage objectForKey:@"talk_id"]] intValue]]]){
-                        
-                        NSLog(@"not exist");
-                        
-                        //NSNumber *masterUid = [NSNumber numberWithInt:[[NSString stringWithFormat:@"%@", [talkMessage objectForKey:@"master_uid"]] intValue]];
-                        //NSNumber *talkID = [NSNumber numberWithInt:[[NSString stringWithFormat:@"%@", [talkMessage objectForKey:@"talk_id"]] intValue]];
-                        //NSString *message = [NSString stringWithFormat:@"%@", [talkMessage objectForKey:@"content"]];
-                        //NSString *sendUserName = [NSString stringWithFormat:@"%@", [talkMessage objectForKey:@"name"]];
-                        //NSNumber *sendUserNo = [NSNumber numberWithInt:[[NSString stringWithFormat:@"%@", [talkMessage objectForKey:@"mbrid"]] intValue]];
-                        
-                        //로컬에 등록
-                        //if([self addMessage:masterUid talkID:talkID message:message sendUserName:sendUserName sendUserNo:sendUserNo]){
-                            //서버에서 삭제
-                        //    [self setServerTalkRead:talkID senderNo:sendUserNo];
-                        //}
-                        
-                    } else {
-                        NSLog(@"exist");
-                    }
-                }
-            }
-        }
-    }
-}
 
-- (void)didSendMessageFinished:(NSString *)result {
-	
-	NSLog(@"receiveData : %@", result);
-	
-	// JSON형식 문자열로 Dictionary생성
-	SBJsonParser *jsonParser = [SBJsonParser new];
-	
-	NSDictionary *jsonData = [jsonParser objectWithString:result];
-	
-    NSNumber *talkId = [[NSNumber alloc] initWithInt:[[NSString stringWithFormat:@"%@",[jsonData objectForKey:@"talk_id"]] intValue]];
-    
-    NSDictionary *receiver = [chatUsers objectAtIndex:0];
-    
-    if(talkId > 0){
-        //기존의 대화방 없으면 추가
-        if(talkUid < 1){
-            talkUid = [[NSString stringWithFormat:@"%@",[jsonData objectForKey:@"master_uid"]] intValue];
-            NSFetchRequest *request= [[NSFetchRequest alloc] init];
-            NSEntityDescription *entity = [NSEntityDescription entityForName:@"TalkRoom" inManagedObjectContext:self.managedObjectContext];
-            NSPredicate *predicate =[NSPredicate predicateWithFormat:@"master_uid==%d",talkUid];
-            [request setEntity:entity];
-            [request setPredicate:predicate];
-            
-            NSError *error = nil;
-            
-            NSArray *array = [self.managedObjectContext executeFetchRequest:request error:&error];
-            if (array != nil) {
-                NSLog(@"talkRoom exist");
-            } else {
-                NSLog(@"talkRoom does not exist.");
-                //대화방 없으면 등록
-                TalkRoom *talkRoom = [NSEntityDescription insertNewObjectForEntityForName:@"TalkRoom" inManagedObjectContext:self.managedObjectContext];
-                talkRoom.name = [NSString stringWithFormat:@"%@", [receiver objectForKey:@"name"]];
-                talkRoom.master_uid = [[NSNumber alloc] initWithInt:talkUid];
-                talkRoom.user_no = [NSNumber numberWithInt:[[AppDelegate sharedAppDelegate] authUserNo]];
-                talkRoom.last_message = addMessageField.text;
-                talkRoom.last_message_date = [NSDate date];
-                talkRoom.last_message_user = [Utils cookieValue:@"userName"];
-                NSError *error = nil;
-                if(![self.managedObjectContext save:&error]){
-                    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-                    abort();
-                }
-            }
-        }
-        
-        //로컬에 등록
-        //[self addMessage:[NSNumber numberWithInt:talkUid] talkID:talkId message:addMessageField.text sendUserName:[Utils cookieValue:@"userName"] sendUserNo:[NSNumber numberWithInt:[[AppDelegate sharedAppDelegate] authUserNo]]];
-        
-    }
-	addMessageField.text = @"";
-
-}
-*/
 #pragma mark -
 #pragma mark Table view methods
 

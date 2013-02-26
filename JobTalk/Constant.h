@@ -26,4 +26,5 @@
 #define kTalkParticipantUrl         @"/m.jobtalk_participant.php"
 #define kTalkReadUrl                @"/m.jobtalk_talk_read.php"
 #define kTalkContentUrl             @"/m.jobtalk_talk_content.php"
+#define kNotiName                   @"receivePush"
 #endif
