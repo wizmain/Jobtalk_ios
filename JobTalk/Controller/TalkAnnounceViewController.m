@@ -51,7 +51,7 @@
     // Do any additional setup after loading the view from its nib.
     
     self.navigationItem.title = @"공지보내기";
-    self.talkDataManager = [TalkDataManager sharedManager];
+    self.talkDataManager = [[TalkDataManager alloc] init];
 
     announceText.layer.cornerRadius = 5;
     announceText.layer.borderColor = [[UIColor grayColor] CGColor];
@@ -78,6 +78,7 @@
     self.announceText = nil;
     self.sendButton = nil;
     self.indicator = nil;
+    self.talkDataManager = nil;
     [[[AppDelegate sharedAppDelegate] httpRequest] cancel];
     
 }
@@ -92,6 +93,7 @@
     [announceText release];
     [sendButton release];
     [indicator release];
+    [talkDataManager release];
     [super dealloc];
 }
 

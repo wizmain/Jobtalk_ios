@@ -740,12 +740,12 @@
 		26D71C99169AA75500D5568D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: kyu wan kim (UQ7CM8B432)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: kyu wan kim (XBKAX4ZC3B)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JobTalk/JobTalk-Prefix.pch";
 				INFOPLIST_FILE = "JobTalk/JobTalk-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "300DB267-CBE0-473B-90DC-19EC0FD9C5C0";
+				PROVISIONING_PROFILE = "0EFFF702-2CE2-433C-887E-77F92C42DDC8";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -753,12 +753,12 @@
 		26D71C9A169AA75500D5568D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: kyuwan kim (HPR9LXKE36)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: kyu wan kim (XBKAX4ZC3B)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JobTalk/JobTalk-Prefix.pch";
 				INFOPLIST_FILE = "JobTalk/JobTalk-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "106B0F76-F47D-421E-BF49-509855967D27";
+				PROVISIONING_PROFILE = "0EFFF702-2CE2-433C-887E-77F92C42DDC8";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
